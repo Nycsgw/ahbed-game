@@ -6,28 +6,67 @@
   <title>اهبد</title>
   <!-- ربط ملف التنسيق الخارجي -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- تنسيقات حاويات الإعلانات والمقلب لضمان التوسيط والتجاوب -->
+  <style>
+    .ad-slot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 12px auto;
+      overflow: hidden;
+      text-align: center;
+    }
+    .ad-banner-top {
+      min-height: 50px;
+      margin-bottom: 10px;
+    }
+    .ad-banner-box {
+      min-height: 60px;
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    }
+    .ad-banner-modal {
+      min-height: 50px;
+      margin: 12px auto 14px;
+    }
+    .ad-placeholder {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 320px;
+      max-width: 100%;
+      height: 50px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+    }
+    @keyframes prankShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+  </style>
 </head>
 
-
-
- 
-    <body>
+<body>
 
   <div class="app-container">
-    <!-- مساحة الإعلان العلوي -->
-    <div id="top-ad-space" class="ad-banner-top">
-      <span class="ad-placeholder">مساحة إعلانية (320×50)</span>
+    <!-- 1. مساحة الإعلان العلوي (320x50) - يظهر في كل الشاشات -->
+    <div id="top-ad-space" class="ad-slot ad-banner-top">
+      <!-- الصق كود بنر Adsterra (320x50) هنا -->
+      <span class="ad-placeholder">مساحة إعلانية علوية (320×50)</span>
     </div>
 
     <!-- =====================================================
          0. صفحة البداية وشرح اللعبة
          ===================================================== -->
-    <!-- =====================================================
-         0. صفحة البداية وشرح اللعبة
-         ===================================================== -->
     <section id="welcome-screen" class="card">
       <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
-      
 
       <p class="subtitle">لعبة اهبد اجابتك وجمع نقاط !</p>
 
@@ -46,7 +85,8 @@
         </li>
       </ul>
 
-<button onclick="startWithEffect(this)" class="star-btn">        ابدأ اللعب الآن
+      <button onclick="startWithEffect(this)" class="star-btn">
+        ابدأ اللعب الآن
         <div class="star-1">
           <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
@@ -78,14 +118,19 @@
           </svg>
         </div>
       </button>
+
+      <!-- 2. مساحة إعلان الصفحة الرئيسية -->
+      <div id="welcome-ad-space" class="ad-slot ad-banner-box">
+        <!-- الصق كود بنر Adsterra هنا -->
+        <span class="ad-placeholder">مساحة إعلانية - البداية (320×50)</span>
+      </div>
     </section>
- <!-- =====================================================
+
+    <!-- =====================================================
          1. صفحة التسجيل والدخول عبر كود الغرفة
          ===================================================== -->
-       
-   
-         <section id="login-screen" class="card hidden" style="margin: auto 0;">
-       <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
+    <section id="login-screen" class="card hidden" style="margin: auto 0;">
+      <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
       <p class="subtitle">اكتب اسمك وأنشئ غرفة أو انضم لأصدقائك (من 2 إلى 5 لاعبين)</p>
 
       <div class="form-group">
@@ -116,10 +161,8 @@
     <!-- =====================================================
          2. غرفة الانتظار (Lobby) - من 2 إلى 5 لاعبين
          ===================================================== -->
-         
     <section id="lobby-screen" class="card hidden" style="margin: auto 0;">
       <div class="room-header">
-        
         <div style="font-size: 0.8rem; color: var(--text-muted);">كود الغرفة (شاركه مع أصدقائك)</div>
         <div id="display-room-code" class="room-code-display">----</div>
         <button onclick="copyRoomCode()" id="copy-code-btn" class="btn btn-secondary btn-sm">📋 نسخ الكود</button>
@@ -142,6 +185,12 @@
         <button onclick="leaveRoom()" class="btn btn-secondary btn-sm" style="align-self: center; margin-top: 4px;">
           خروج من الغرفة
         </button>
+      </div>
+
+      <!-- 3. مساحة إعلان غرفة الانتظار -->
+      <div id="lobby-ad-space" class="ad-slot ad-banner-box">
+        <!-- الصق كود بنر Adsterra هنا -->
+        <span class="ad-placeholder">مساحة إعلانية - الانتظار (320×50)</span>
       </div>
     </section>
 
@@ -168,7 +217,8 @@
         <!-- شبكة الـ 12 مربع -->
         <div id="grid-container" class="squares-grid"></div>
       </div>
-<!-- شريط الإدخال -->
+
+      <!-- شريط الإدخال -->
       <div>
         <div id="feedback-msg" class="feedback-msg"></div>
         <form id="answer-form" class="answer-form">
@@ -179,13 +229,10 @@
     </section>
 
     <!-- =====================================================
-         الهامش السفلي (الحقوق وحساب التليقرام)
-         ===================================================== -->
-   <!-- =====================================================
-         الهامش السفلي (الحقوق وحساب التليقرام وسياسة الخصوصية)
+         الهامش السفلي (الحقوق + الزر المخفي + التليقرام + الخصوصية)
          ===================================================== -->
     <footer class="app-footer" dir="ltr">
-      <span>Made in the Room</span>
+      <span id="secret-trigger" style="cursor: default; user-select: none;">Made in the Room</span>
       <span class="footer-dot">•</span>
       <a href="https://t.me/t907x" target="_blank" rel="noopener noreferrer" class="telegram-link">@t907x</a>
       <span class="footer-dot">•</span>
@@ -200,6 +247,13 @@
     <div class="modal-box">
       <h2 id="modal-title" class="modal-title">خلصت الجولة</h2>
       <ul id="ranking-list" class="ranking-list"></ul>
+
+      <!-- 4. مساحة إعلان بين الجولات -->
+      <div id="modal-ad-space" class="ad-slot ad-banner-modal">
+        <!-- الصق كود بنر Adsterra هنا -->
+        <span class="ad-placeholder">مساحة إعلانية - بين الجولات (320×50)</span>
+      </div>
+
       <button id="next-round-btn" class="btn btn-primary">الجولة التالية</button>
     </div>
   </div>
@@ -216,7 +270,37 @@
     </div>
     <p class="loading-text">جاري التجهيز...</p>
   </div>
- <script type="module">
+
+  <!-- =====================================================
+       6. نظام المقلب السري (يُفتح بالضغط 5 مرات على Made in the Room)
+       ===================================================== -->
+  <div id="prank-admin-modal" class="modal-overlay hidden" style="z-index: 9999;">
+    <div class="modal-box" style="border: 2px solid #ef4444;">
+      <h3 class="modal-title" style="color: #ef4444;">🕵️ لوحة المقلب السري</h3>
+      <div class="form-group" style="text-align: right;">
+        <label class="form-label">اختر الضحية:</label>
+        <select id="prank-target-select" class="input-field" style="margin-bottom: 10px;">
+          <option value="ALL">الجميع في الغرفة</option>
+        </select>
+        <label class="form-label">رسالة المقلب:</label>
+        <input id="prank-msg-input" type="text" class="input-field" placeholder="مثال: تم تهكير جوالك بنجاح 😂">
+      </div>
+      <div style="display: flex; gap: 8px; margin-top: 12px;">
+        <button onclick="sendSecretPrank()" class="btn btn-primary" style="background: #ef4444; flex: 1;">أرسل المقلب 🚀</button>
+        <button onclick="document.getElementById('prank-admin-modal').classList.add('hidden')" class="btn btn-secondary">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="prank-victim-modal" class="modal-overlay hidden" style="z-index: 10000; background: rgba(0,0,0,0.92);">
+    <div class="modal-box" style="border: 2px solid #f59e0b; animation: prankShake 0.4s;">
+      <div style="font-size: 3rem; margin-bottom: 8px;">⚠️😂</div>
+      <h2 id="prank-victim-text" class="modal-title" style="color: #fbbf24; font-size: 1.4rem; line-height: 1.6;"></h2>
+      <button onclick="document.getElementById('prank-victim-modal').classList.add('hidden')" class="btn btn-primary" style="margin-top: 14px;">حسبي الله عليك 😂</button>
+    </div>
+  </div>
+
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import {
       getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, runTransaction
@@ -289,7 +373,6 @@
       { category: "📺 كرتون وأنمي", question: "اذكر اسم مسلسل كرتون أو أنمي مشهور", answers: ["كونان","المحقق كونان","ون بيس","ناروتو","دراغون بول","هجوم العمالقة","بليتش","هنتر","القناص","ديث نوت","مذكرة الموت","بوكيمون","ديجيمون","ابطال الديجيتال","كابتن ماجد","سلام دانك","عدنان ولينا","سالي","ريمي","هايدي","فلونة","ساندي بيل","غرندايزر","مازنجر","توم وجيري","سبونج بوب","غامبول","وقت المغامرة","بن تن","باتمان","سوبرمان","سبايدرمان","سلاحف النينجا","السنافر","بكار","فريج","شعبية الكرتون","مسامير","يعرب","الاسد الملك","علاء الدين","سندريلا","شركة المرعبين","حكاية لعبة"] },
       { category: "🎓 مواد وتخصصات", question: "اذكر مادة دراسية أو تخصصاً جامعياً", answers: ["رياضيات","فيزياء","كيمياء","احياء","علوم","لغة عربية","نحو","ادب","بلاغة","انجليزي","لغة انجليزية","فرنسي","تاريخ","جغرافيا","تربية اسلامية","فقه","توحيد","تفسير","حديث","قران","حاسب","برمجة","علوم حاسب","هندسة برمجيات","نظم معلومات","امن سيبراني","ذكاء اصطناعي","هندسة","هندسة مدنية","هندسة كهربائية","هندسة ميكانيكية","هندسة معمارية","عمارة","طب","طب بشري","طب اسنان","صيدلة","تمريض","مختبرات طبية","ادارة اعمال","محاسبة","مالية","اقتصاد","تسويق","قانون","حقوق","شريعة","اعلام","صحافة","علم نفس","علم اجتماع","تربية بدنية","فنية"] },
       { category: "🕌 المسجد", question: "اذكر شيئاً تراه أو تجده داخل المسجد", answers: ["مصحف","قران","منبر","محراب","مئذنة","منارة","قبة","سجاد","فرش","ميكروفون","لاقط","سماعة","مكبر صوت","ساعة","ساعة اذان","مكيف","مروحة","نجفة","ثريا","لمبة","مكتبة","رف مصاحف","كرسي","كرسي صلاة","عكاز","عصا","سبحة","مسبحة","سواك","مسواك","طيب","عود","بخور","مبخرة","عطر","مناديل","ماء","زمزم","براد ماء","كاسات","حامل مصحف","باب","نافذة","عمود","سارية","مواضئ","ميضأة","دورة مياه","حذاء","رف احذية","حصالة","تبرعات"] },
-      // --- 50 سؤالاً إضافياً جديداً ---
       { category: "⚽ نجوم الكرة", question: "اذكر لاعب كرة قدم عالمي أو عربي مشهور", answers: ["ميسي","كريستيانو","رونالدو","نيمار","مبابي","هالاند","صلاح","محمد صلاح","بنزيما","مودريتش","كروس","دي بروين","ليفاندوفسكي","سواريز","بيلينجهام","فينيسيوس","لامين يامال","رودري","كانتي","محرز","رياض محرز","حكيمي","اشرف حكيمي","سالم الدوسري","سامي الجابر","ماجد عبدالله","ياسر القحطاني","محمد نور","الشلهوب","فهد المولد","العويس","البليهي","تمبكتي","كنو","سلمان الفرج","ابوتريكة","زيدان","مارادونا","بيليه","رونالدينيو","كاكا","انييستا","تشافي","بويول","راموس","نوير","بوفون","كاسياس","بونو","ياسين بونو"] },
       { category: "🌴 نخيل وتمور", question: "اذكر نوعاً من أنواع التمور المشهورة", answers: ["سكري","اخلاص","خلاص","صقعي","عجوة","مجدول","برحي","روثانة","صفري","نبتة علي","نبتة سيف","خضري","شيشي","رزيز","مكتومي","منيفي","سلطانة","عنبرة","حلوة","حلوة الجوف","حساوية","هلالي","قطارة","قسب","دقلة نور","مجهول","برني","صفاوي","كعيكة","ونانة"] },
       { category: "💍 مناسبات وأفراح", question: "اذكر شيئاً يرتبط بالزواج والمناسبات والأفراح", answers: ["عريس","عروس","قاعة","قصر افراح","بشت","فستان","شبكة","مهر","دبلة","خاتم","عقد","زفة","عرضة","سامري","دف","طبل","بخور","عود","دهن عود","ورد","بوكيه","كوشة","تصوير","مصور","ضيافة","قهوة","تمر","حلى","عشاء","وليمة","ذبيحة","مفطح","بطاقة دعوة","معازيم","شهر عسل","مباركة","تهنئة"] },
@@ -346,7 +429,7 @@
     const MAX_PLAYERS = 5;
     const totalRounds = 5;
     const totalSquares = 12;
-    const AUTO_NEXT_SECONDS = 7; // مدة العداد التلقائي بين الجولات
+    const AUTO_NEXT_SECONDS = 7;
     const botNamesPool = ["سارة", "خالد", "فيصل", "نورة", "تركي", "ريم", "سلطان", "العنود"];
 
     const myId = "p_" + Math.random().toString(36).substring(2, 9);
@@ -382,7 +465,7 @@
         .replace(/[أإآ]/g, 'ا')
         .replace(/ة/g, 'ه')
         .replace(/ى/g, 'ي')
-        .replace(/[\u064B-\u065F]/g, '')
+        .replace(/[ً-ٟ]/g, '')
         .toLowerCase();
     }
 
@@ -546,6 +629,8 @@
           document.getElementById('end-modal').classList.add('hidden');
         }
       }
+
+      checkIncomingPrank();
     }
 
     // =========================================================
@@ -652,7 +737,6 @@
       });
     }
 
-    // دالة تخطي الجولة الحالية أثناء اللعب (للمضيف)
     window.skipCurrentRound = async function() {
       if (!roomData || roomData.hostId !== myId || roomData.status !== "playing") return;
       clearInterval(botInterval);
@@ -669,7 +753,6 @@
 
       const isHost = roomData.hostId === myId;
 
-      // إضافة زر تخطي الجولة في الشريط العلوي للمضيف مرة واحدة
       const topBar = document.querySelector('#game-screen .top-bar');
       let skipBtn = document.getElementById('skip-round-btn');
       if (!skipBtn && topBar) {
@@ -903,6 +986,67 @@
 
       modal.classList.remove('hidden');
     }
-  </script> 
+
+    // =========================================================
+    // 6. منطق الزر المخفي والمقلب الأونلاين
+    // =========================================================
+    let secretClicks = 0;
+    let secretTimer = null;
+    let lastShownPrankId = "";
+
+    document.getElementById('secret-trigger').addEventListener('click', () => {
+      secretClicks++;
+      clearTimeout(secretTimer);
+      secretTimer = setTimeout(() => { secretClicks = 0; }, 1500);
+
+      if (secretClicks >= 5) {
+        secretClicks = 0;
+        if (!roomData || !currentRoomCode) {
+          alert("ادخل غرفة لعب أولاً لتفعيل المقلب!");
+          return;
+        }
+        const select = document.getElementById('prank-target-select');
+        select.innerHTML = '<option value="ALL">الجميع في الغرفة</option>';
+        roomData.players.forEach(p => {
+          if (p.id !== myId && !p.isBot) {
+            select.innerHTML += `<option value="${p.id}">${p.name}</option>`;
+          }
+        });
+        document.getElementById('prank-admin-modal').classList.remove('hidden');
+      }
+    });
+
+    window.sendSecretPrank = async function() {
+      const msg = document.getElementById('prank-msg-input').value.trim();
+      const targetId = document.getElementById('prank-target-select').value;
+      if (!msg || !currentRoomCode) return;
+
+      await updateDoc(doc(db, "rooms", currentRoomCode), {
+        prank: {
+          id: "prk_" + Date.now(),
+          target: targetId,
+          senderId: myId,
+          text: msg
+        }
+      });
+
+      document.getElementById('prank-msg-input').value = '';
+      document.getElementById('prank-admin-modal').classList.add('hidden');
+    };
+
+    function checkIncomingPrank() {
+      if (!roomData || !roomData.prank) return;
+      const p = roomData.prank;
+
+      if (p.id === lastShownPrankId || p.senderId === myId) return;
+
+      if (p.target === "ALL" || p.target === myId) {
+        lastShownPrankId = p.id;
+        document.getElementById('prank-victim-text').textContent = p.text;
+        document.getElementById('prank-victim-modal').classList.remove('hidden');
+        if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+      }
+    }
+  </script>
 </body>
 </html>
