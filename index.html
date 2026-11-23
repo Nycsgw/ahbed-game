@@ -4,10 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>اهبد</title>
-  <!-- ربط ملف التنسيق الخارجي -->
-<link rel="stylesheet" href="style.css?v=2">
-  <!-- تنسيقات حاويات الإعلانات والمقلب لضمان التوسيط والتجاوب -->
+  <!-- ربط ملف التنسيق الخارجي مع رقم إصدار جديد لكسر الكاش -->
+  <link rel="stylesheet" href="style.css?v=4">
+  <!-- تنسيقات مدمجة لضمان عمل الخلفية والتوب 3 والإعلانات فوراً بدون انتظار كاش CSS -->
   <style>
+    #bg-words-layer {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+    .bg-scatter-word {
+      position: absolute;
+      color: #ffffff;
+      opacity: 0.045;
+      font-weight: 800;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .app-container, .card {
+      position: relative;
+      z-index: 1;
+    }
+    .top3-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 14px auto;
+      max-width: 340px;
+      text-align: right;
+    }
+    .top3-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold, #fbbf24);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .top3-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .top3-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+    .top3-score {
+      color: var(--gold, #fbbf24);
+      font-weight: 700;
+    }
     .ad-slot {
       display: flex;
       justify-content: center;
@@ -1088,7 +1145,7 @@
     initScatteredBackground();
 
     // =========================================================
-    // 8. لوحة التوب 3 العامة (أول حرفين فقط)
+    // 8. لوحة التوب 3 العامة (الأول كامل والبقية أول حرفين)
     // =========================================================
     function listenToGlobalTop3() {
       const listEl = document.getElementById('global-top3-list');
