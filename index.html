@@ -1108,11 +1108,13 @@
         snapshot.forEach((docSnap) => {
           const d = docSnap.data();
           const rawName = (d.name || "").trim();
-          const shortName = rawName.length > 2 ? Array.from(rawName).slice(0, 2).join("") + ".." : rawName;
+          const displayName = (idx === 0)
+            ? rawName
+            : (rawName.length > 2 ? Array.from(rawName).slice(0, 2).join("") + ".." : rawName);
 
           const li = document.createElement('li');
           li.className = 'top3-item';
-          li.innerHTML = `<span>${medals[idx] || "•"} ${shortName}</span><span class="top3-score">${d.score} نقطة</span>`;
+          li.innerHTML = `<span>${medals[idx] || "•"} ${displayName}</span><span class="top3-score">${d.score} نقطة</span>`;
           listEl.appendChild(li);
           idx++;
         });
