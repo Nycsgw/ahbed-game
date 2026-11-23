@@ -54,18 +54,26 @@
 </head>
 
 <body>
+ 
+  <div id="bg-words-layer" aria-hidden="true"></div>
 
   <div class="app-container">
     <!-- 1. مساحة الإعلان العلوي (320x50) - يظهر في كل الشاشات -->
     <div id="top-ad-space" class="ad-slot ad-banner-top">
-     <script>(function(s){s.dataset.zone='12318758',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+      <script>(function(s){s.dataset.zone='12318758',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     </div>
 
-         <!-- =====================================================
-         0. صفحة البداية وشرح اللعبة
+    <!-- =====================================================
+0. صفحة البداية وشرح اللعبة
          ===================================================== -->
     <section id="welcome-screen" class="card">
       <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
+      <div id="top3-container" class="top3-box">
+        <div class="top3-title">🏆 توب 3</div>
+        <ul id="global-top3-list" class="top3-list">
+          <li class="top3-item" style="justify-content:center; opacity:0.6;">جاري تحميل المتصدرين...</li>
+        </ul>
+      </div>
 
       <p class="subtitle">لعبة اهبد اجابتك وجمع نقاط !</p>
 
@@ -125,7 +133,7 @@
     </section>
 
     <!-- =====================================================
-         1. صفحة التسجيل والدخول عبر كود الغرفة
+1. صفحة التسجيل والدخول عبر كود الغرفة
          ===================================================== -->
     <section id="login-screen" class="card hidden" style="margin: auto 0;">
       <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
@@ -157,7 +165,7 @@
     </section>
 
     <!-- =====================================================
-         2. غرفة الانتظار (Lobby) - من 2 إلى 5 لاعبين
+2. غرفة الانتظار (Lobby) - من 2 إلى 5 لاعبين
          ===================================================== -->
     <section id="lobby-screen" class="card hidden" style="margin: auto 0;">
       <div class="room-header">
@@ -187,13 +195,12 @@
 
       <!-- 3. مساحة إعلان غرفة الانتظار -->
       <div id="lobby-ad-space" class="ad-slot ad-banner-box">
-        <<script>(function(s){s.dataset.zone='12318783',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-        <span class="ad-placeholder">مساحة إعلانية - الانتظار (320×50)</span>
+        <script>(function(s){s.dataset.zone='12318783',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
       </div>
     </section>
 
     <!-- =====================================================
-         3. شاشة اللعب النشطة
+3. شاشة اللعب النشطة
          ===================================================== -->
     <section id="game-screen" class="hidden" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 68vh;">
       <div>
@@ -239,7 +246,7 @@
   </div>
 
   <!-- =====================================================
-       4. نافذة نهاية الجولة / المباراة
+4. نافذة نهاية الجولة / المباراة
        ===================================================== -->
   <div id="end-modal" class="modal-overlay hidden">
     <div class="modal-box">
@@ -248,7 +255,6 @@
 
       <!-- 4. مساحة إعلان بين الجولات -->
       <div id="modal-ad-space" class="ad-slot ad-banner-modal">
-        <!-- الصق كود بنر Adsterra هنا -->
         <span class="ad-placeholder">مساحة إعلانية - بين الجولات (320×50)</span>
       </div>
 
@@ -257,7 +263,7 @@
   </div>
 
   <!-- =====================================================
-       5. شاشة الانتظار بين الصفحات
+5. شاشة الانتظار بين الصفحات
        ===================================================== -->
   <div id="loading-overlay" class="loading-overlay hidden">
     <div class="loader-squares">
@@ -270,7 +276,7 @@
   </div>
 
   <!-- =====================================================
-       6. نظام المقلب السري (يُفتح بالضغط 5 مرات على Made in the Room)
+6. نظام المقلب السري (يُفتح بالضغط 5 مرات على Made in the Room)
        ===================================================== -->
   <div id="prank-admin-modal" class="modal-overlay hidden" style="z-index: 9999;">
     <div class="modal-box" style="border: 2px solid #ef4444;">
@@ -301,7 +307,8 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import {
-      getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, runTransaction
+      getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, runTransaction,
+      collection, query, orderBy, limit
     } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -463,7 +470,7 @@
         .replace(/[أإآ]/g, 'ا')
         .replace(/ة/g, 'ه')
         .replace(/ى/g, 'ي')
-        .replace(/[ً-ٟ]/g, '')
+        .replace(/[\u064B-\u065F]/g, '')
         .toLowerCase();
     }
 
@@ -933,6 +940,9 @@
       });
 
       if (roomData.status === "match_end") {
+        if (isHost) {
+          savePlayersToLeaderboard(roomData.players);
+        }
         title.textContent = `🏆 الكنق: ${sortedPlayers[0].name}!`;
         if (isHost) {
           btn.disabled = false;
@@ -1043,6 +1053,93 @@
         document.getElementById('prank-victim-text').textContent = p.text;
         document.getElementById('prank-victim-modal').classList.remove('hidden');
         if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+      }
+    }
+
+    // =========================================================
+    // 7. خلفية الكلمات المبعثرة (شفافية خفيفة)
+    // =========================================================
+    function initScatteredBackground() {
+      const layer = document.getElementById('bg-words-layer');
+      if (!layer) return;
+
+      const sampleWords = [
+        "اهبد", "كشتة", "الهلال", "النصر", "كبسة", "السعودية", "دافور", "تويوتا",
+        "فيفا", "ببجي", "طاش", "الرياض", "جدة", "حايل", "صقر", "قهوة", "هيل",
+        "مرسيدس", "برشلونة", "ريال مدريد", "فستق", "سهيل", "بلوت", "كفو", "ابشر"
+      ];
+
+      layer.innerHTML = "";
+      const count = 28;
+      for (let i = 0; i < count; i++) {
+        const span = document.createElement('span');
+        span.className = 'bg-scatter-word';
+        span.textContent = sampleWords[i % sampleWords.length];
+
+        const top = (i * 3.6 + (Math.random() * 4)) % 96;
+        const left = (i * 17 + (Math.random() * 12)) % 92;
+        const rotate = Math.floor(Math.random() * 50) - 25;
+        const size = (0.85 + Math.random() * 0.9).toFixed(2);
+
+        span.style.top = `${top}%`;
+        span.style.left = `${left}%`;
+        span.style.transform = `rotate(${rotate}deg)`;
+        span.style.fontSize = `${size}rem`;
+        layer.appendChild(span);
+      }
+    }
+    initScatteredBackground();
+
+    // =========================================================
+    // 8. لوحة التوب 3 العامة (أول حرفين فقط)
+    // =========================================================
+    function listenToGlobalTop3() {
+      const listEl = document.getElementById('global-top3-list');
+      if (!listEl) return;
+
+      const q = query(collection(db, "leaderboard"), orderBy("score", "desc"), limit(3));
+      onSnapshot(q, (snapshot) => {
+        listEl.innerHTML = "";
+        if (snapshot.empty) {
+          listEl.innerHTML = `<li class="top3-item" style="justify-content:center; opacity:0.6;">لا توجد نقاط مسجلة بعد — كن الأول!</li>`;
+          return;
+        }
+        const medals = ["🥇", "🥈", "🥉"];
+        let idx = 0;
+        snapshot.forEach((docSnap) => {
+          const d = docSnap.data();
+          const rawName = (d.name || "").trim();
+          const shortName = rawName.length > 2 ? Array.from(rawName).slice(0, 2).join("") + ".." : rawName;
+
+          const li = document.createElement('li');
+          li.className = 'top3-item';
+          li.innerHTML = `<span>${medals[idx] || "•"} ${shortName}</span><span class="top3-score">${d.score} نقطة</span>`;
+          listEl.appendChild(li);
+          idx++;
+        });
+      }, (err) => {
+        console.error("Leaderboard error:", err);
+      });
+    }
+    listenToGlobalTop3();
+
+    // حفظ أعلى نتيجة يحققها كل لاعب حقيقي في نهاية المباراة
+    async function savePlayersToLeaderboard(playersList) {
+      for (const p of playersList) {
+        if (p.isBot || !p.score || p.score <= 0) continue;
+        const docId = p.name.trim().toLowerCase();
+        const ref = doc(db, "leaderboard", docId);
+        try {
+          await runTransaction(db, async (tx) => {
+            const snap = await tx.get(ref);
+            const prevBest = snap.exists() ? (snap.data().score || 0) : 0;
+            if (p.score > prevBest) {
+              tx.set(ref, { name: p.name.trim(), score: p.score, updatedAt: Date.now() });
+            }
+          });
+        } catch (e) {
+          console.error("Failed saving leaderboard:", e);
+        }
       }
     }
   </script>
