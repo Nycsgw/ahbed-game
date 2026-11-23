@@ -1011,3 +1011,63 @@ body {
   color: var(--gold, #fbbf24);
   font-weight: 700;
 }
+
+
+
+#bg-words-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+.bg-scatter-word {
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.045;
+  font-weight: 800;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.app-container, .card {
+  position: relative;
+  z-index: 1;
+}
+.top3-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin: 14px auto;
+  max-width: 340px;
+  text-align: right;
+}
+.top3-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold, #fbbf24);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.top3-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.top3-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.top3-score {
+  color: var(--gold, #fbbf24);
+  font-weight: 700;
+}
