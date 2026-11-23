@@ -1068,6 +1068,6 @@ body {
   font-size: 0.85rem;
 }
 .top3-score {
-  color: var(--gold, #fbbf24);
+  color: var(--gold, #fabc1f);
   font-weight: 700;
-}
+}  
