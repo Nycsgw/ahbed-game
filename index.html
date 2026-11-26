@@ -3,293 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اهبد</title>
-  <!-- ربط ملف التنسيق الخارجي مع رقم إصدار جديد لكسر الكاش -->
-  <link rel="stylesheet" href="style.css?v=4">
-  <!-- تنسيقات مدمجة لضمان عمل الخلفية والتوب 3 والإعلانات فوراً بدون انتظار كاش CSS -->
-  <style>
-    #bg-words-layer {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-      user-select: none;
-    }
-    .bg-scatter-word {
-      position: absolute;
-      color: #ffffff;
-      opacity: 0.045;
-      font-weight: 800;
-      white-space: nowrap;
-      font-family: inherit;
-    }
-    .app-container, .card {
-      position: relative;
-      z-index: 1;
-    }
-    .top3-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin: 14px auto;
-      max-width: 340px;
-      text-align: right;
-    }
-    .top3-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold, #fbbf24);
-      margin-bottom: 8px;
-      text-align: center;
-    }
-    .top3-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .top3-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-    }
-    .top3-score {
-      color: var(--gold, #fbbf24);
-      font-weight: 700;
-    }
-    .ad-slot {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 12px auto;
-      overflow: hidden;
-      text-align: center;
-    }
-    .ad-banner-top {
-      min-height: 50px;
-      margin-bottom: 10px;
-    }
-    .ad-banner-box {
-      min-height: 60px;
-      margin-top: 16px;
-      padding-top: 10px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.12);
-    }
-    .ad-banner-modal {
-      min-height: 50px;
-      margin: 12px auto 14px;
-    }
-    .ad-placeholder {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 320px;
-      max-width: 100%;
-      height: 50px;
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px dashed rgba(255, 255, 255, 0.18);
-      border-radius: 8px;
-    }
-    @keyframes prankShake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-8px); }
-      40%, 80% { transform: translateX(8px); }
-    }
-  </style>
+  <title>اهبد | لعبة التحدي والسرعة</title>
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 
 <body>
- 
+  <div class="bg-grid-glow" aria-hidden="true"></div>
   <div id="bg-words-layer" aria-hidden="true"></div>
 
   <div class="app-container">
-    <!-- 1. مساحة الإعلان العلوي (320x50) - يظهر في كل الشاشات -->
-    <div id="top-ad-space" class="ad-slot ad-banner-top">
-      <script>(function(s){s.dataset.zone='12318758',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-    </div>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3209690944379221"
+     crossorigin="anonymous"></script> 
 
     <!-- =====================================================
-0. صفحة البداية وشرح اللعبة
+         0. صفحة البداية وشرح اللعبة
          ===================================================== -->
-    <section id="welcome-screen" class="card">
-      <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
+    <section id="welcome-screen" class="card glass-panel">
+      <div class="brand-logo-wrap">
+        <svg class="ahbed-svg-logo" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="neonGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fde047"/>
+              <stop offset="50%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#ea580c"/>
+            </linearGradient>
+            <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#818cf8"/>
+            </linearGradient>
+            <filter id="glowShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#f59e0b" flood-opacity="0.45"/>
+            </filter>
+          </defs>
+          <rect x="18" y="10" width="284" height="86" rx="22" fill="#0f172a" stroke="url(#neonCyan)" stroke-width="2.5"/>
+          <rect x="24" y="16" width="272" height="74" rx="17" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <polygon points="48,26 51,34 59,37 51,40 48,48 45,40 37,37 45,34" fill="#38bdf8"/>
+          <polygon points="272,62 274,68 280,70 274,72 272,78 270,72 264,70 270,68" fill="#fde047"/>
+          <circle cx="265" cy="30" r="3" fill="#f43f5e"/>
+          <circle cx="55" cy="76" r="2.5" fill="#10b981"/>
+          <text x="160" y="68" text-anchor="middle" font-family="'Lalezar', 'Changa', sans-serif" font-size="56" font-weight="900" fill="url(#neonGold)" filter="url(#glowShadow)" letter-spacing="1">اهبد!</text>
+          <text x="160" y="108" text-anchor="middle" font-family="'Changa', sans-serif" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="2">AHBED PARTY ARENA</text>
+        </svg>
+      </div>
+
       <div id="top3-container" class="top3-box">
-        <div class="top3-title">🏆 توب 3</div>
+        <div class="top3-title">🏆 ملوك الهبد (توب 3)</div>
         <ul id="global-top3-list" class="top3-list">
           <li class="top3-item" style="justify-content:center; opacity:0.6;">جاري تحميل المتصدرين...</li>
         </ul>
       </div>
 
-      <p class="subtitle">لعبة اهبد اجابتك وجمع نقاط !</p>
+      <p class="subtitle"></p>
 
       <ul class="rules-list">
         <li class="rule-item">
-          <span class="rule-icon">🎯</span>
-          <span> يطلع لك سؤال وقدامك 12 اجابة, اكتب أي إجابة صح تطري على بالك .</span>
-        </li>
-        <li class="rule-item">
-          <span class="rule-icon">⭐</span>
-          <span><strong>الهبده الذهبية:</strong> كل جولة فيها اجابتين ذهبيتين، اللي يحجزها ياخذ <span class="gold-text">نقطتين (x2)</span> بدل نقطة وحدة.</span>
+          <span class="rule-icon">⚡</span>
+          <span><strong>الجولات :</strong>اللعبه تتكون من 10 جولات والباقي اكتشفه بنفسك   .</span>
         </li>
         <li class="rule-item">
           <span class="rule-icon">🏆</span>
-          <span><strong>نظام اللعبه:</strong> 5 جولات كل جوله سؤال و 12 أجابة , اعلى هبيد يجمع نقاط هو الفائز .</span>
+          <span><strong>جمع نقاطك وكن من ملوك الهبد!</strong></span>
         </li>
       </ul>
 
-      <button onclick="startWithEffect(this)" class="star-btn">
-        ابدأ اللعب الآن
-        <div class="star-1">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
-          </svg>
-        </div>
-        <div class="star-2">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
-          </svg>
-        </div>
-        <div class="star-3">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
-          </svg>
-        </div>
-        <div class="star-4">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
-          </svg>
-        </div>
-        <div class="star-5">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
-          </svg>
-        </div>
-        <div class="star-6">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 784.11 815.53" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path></g>
-          </svg>
-        </div>
+      <button onclick="startWithEffect(this)" class="arcade-cta-btn">
+        <span>🚀 ابدأ  الآن</span>
       </button>
 
-      <!-- 2. مساحة إعلان الصفحة الرئيسية -->
-      <div id="welcome-ad-space" class="ad-slot ad-banner-box">
-      </div>
+      <div id="welcome-ad-space" class="ad-slot ad-banner-box"></div>
     </section>
 
     <!-- =====================================================
-1. صفحة التسجيل والدخول عبر كود الغرفة
+         1. صفحة التسجيل والدخول عبر كود الغرفة
          ===================================================== -->
-    <section id="login-screen" class="card hidden" style="margin: auto 0;">
-      <img src="logo.PNG" alt="شعار لعبة اهبد" class="game-logo" style="display: block; margin: 0 auto 12px; width: 150px;">
-      <p class="subtitle">اكتب اسمك وأنشئ غرفة أو انضم لأصدقائك (من 2 إلى 5 لاعبين)</p>
+    <section id="login-screen" class="card glass-panel hidden">
+      <div class="mini-header-badge">🎮 إعداد اللاعب</div>
+      <h2 class="section-heading">ارسل الكود لاصدقائك واجلدهم</h2>
+      <p class="subtitle"></p>
 
       <div class="form-group">
-        <label class="form-label" for="player-name-input">عرفنا عنك</label>
-        <input id="player-name-input" type="text" maxlength="15" class="input-field" placeholder=" مثال: نواف">
+        <label class="form-label" for="player-name-input">عرفنا عليك</label>
+        <input id="player-name-input" type="text" maxlength="15" class="input-field" placeholder="مثال: نواف . ونعم ">
       </div>
 
-      <div onclick="createRoom()" class="container-button">
-        <div class="hover bt-1"></div>
-        <div class="hover bt-2"></div>
-        <div class="hover bt-3"></div>
-        <div class="hover bt-4"></div>
-        <div class="hover bt-5"></div>
-        <div class="hover bt-6"></div>
-        <button type="button" class="create-3d-btn"></button>
-      </div>
+      <button type="button" onclick="createRoom()" class="arcade-cta-btn" style="margin-bottom: 4px;">
+        <span>✨ + إنشاء غرفة جديدة</span>
+      </button>
 
       <div class="divider"><span>أو انضم بكود الغرفة</span></div>
 
       <div class="join-row">
         <input id="room-code-input" type="text" maxlength="4" class="input-field code-input" placeholder="ABCD">
-        <button onclick="joinRoom()" class="btn btn-secondary">ادخل واجلدهم</button>
+        <button onclick="joinRoom()" class="btn btn-secondary">ادخل واجلدهم 🔥</button>
       </div>
 
       <p id="login-error" class="feedback-msg" style="margin-top: 10px;"></p>
     </section>
 
     <!-- =====================================================
-2. غرفة الانتظار (Lobby) - من 2 إلى 5 لاعبين
+         2. غرفة الانتظار (Lobby)
          ===================================================== -->
-    <section id="lobby-screen" class="card hidden" style="margin: auto 0;">
+    <section id="lobby-screen" class="card glass-panel hidden">
       <div class="room-header">
-        <div style="font-size: 0.8rem; color: var(--text-muted);">كود الغرفة (شاركه مع أصدقائك)</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">كود الغرفة (شاركه مع أصدقائك)</div>
         <div id="display-room-code" class="room-code-display">----</div>
         <button onclick="copyRoomCode()" id="copy-code-btn" class="btn btn-secondary btn-sm">📋 نسخ الكود</button>
       </div>
 
       <div class="players-status-bar">
         <span>اللاعبون المتصلون:</span>
-        <span id="player-count-badge" style="font-weight: 800; color: #60a5fa;">1 / 5 (الحد الأدنى 2)</span>
+        <span id="player-count-badge" style="font-weight: 800; color: #38bdf8;">1 / 5</span>
       </div>
 
       <ul id="lobby-players-list" class="players-list"></ul>
 
       <div class="lobby-actions">
         <button id="add-bot-btn" onclick="addTestPlayer()" class="btn btn-secondary">
-          + إضافة بوت منافس للتجربة (الحد الأقصى 5)
+          + إضافة بوت منافس للتجربة
         </button>
         <button id="start-game-btn" onclick="startNewMatch()" class="btn btn-success" disabled>
           ابدأ المباراة (بانتظار لاعب آخر...)
         </button>
-        <button onclick="leaveRoom()" class="btn btn-secondary btn-sm" style="align-self: center; margin-top: 4px;">
+        <button onclick="leaveRoom()" class="btn btn-ghost btn-sm" style="align-self: center; margin-top: 2px;">
           خروج من الغرفة
         </button>
       </div>
 
-      <!-- 3. مساحة إعلان غرفة الانتظار -->
-      <div id="lobby-ad-space" class="ad-slot ad-banner-box">
-      </div>
+      <div id="lobby-ad-space" class="ad-slot ad-banner-box"></div>
     </section>
 
     <!-- =====================================================
-3. شاشة اللعب النشطة
+         3. شاشة اللعب النشطة
          ===================================================== -->
-    <section id="game-screen" class="hidden" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 68vh;">
+    <section id="game-screen" class="hidden game-arena">
       <div>
+        <!-- الشريط العلوي: رقم الجولة + عداد الدقيقة ونص + زر الصوت -->
         <div class="top-bar">
-          <span id="round-text" style="font-weight: 800; color: var(--text-main);">الجولة 1 / 5</span>
-          <span id="game-room-badge" class="badge">غرفة: ----</span>
-          <span id="remaining-text" class="remaining-badge">عدد الاجابات المتبقيه: 12</span>
+          <span id="round-text" class="round-pill">جولة 1/10</span>
+          <span id="round-clock-badge" class="round-clock-pill">⏱️ 01:30</span>
+          <span id="remaining-text" class="remaining-badge">المتبقي: 12</span>
+          <button type="button" id="sound-toggle-btn" onclick="toggleSound()" class="sound-btn" title="كتم/تشغيل الصوت">🔊</button>
         </div>
 
-        <!-- لوحة نقاط اللاعبين (تتكيف تلقائياً من 2 إلى 5 لاعبين) -->
+        <!-- لوحة نقاط اللاعبين -->
         <div id="scoreboard" class="scoreboard"></div>
 
-        <!-- السؤال والتصنيف -->
+        <!-- صندوق السؤال -->
         <div class="question-box">
-          <div id="category-badge" class="category-tag"></div>
+          <div style="display:flex; justify-content:center; gap:6px; align-items:center; margin-bottom:5px;">
+            <span id="category-badge" class="category-tag" style="margin-bottom:0;"></span>
+            <span id="mode-badge" class="mode-pill">⚡ شبكة</span>
+          </div>
           <h2 id="question-title" class="question-text"></h2>
         </div>
 
-        <!-- شبكة الـ 12 مربع -->
+        <!-- [الطور الأول: جولات 1-5] شبكة الـ 12 مربع -->
         <div id="grid-container" class="squares-grid"></div>
+
+        <!-- [الطور الثاني: جولات 6-10] ساحة الأدوار الـ 5 -->
+        <div id="turn-mode-container" class="turn-arena hidden">
+          <div class="turn-status-card">
+            <div class="turn-top-row">
+              <span id="turn-player-label" class="turn-player-name">دور: ---</span>
+              <span id="turn-timer-badge" class="timer-pill">⏳ 15ث</span>
+            </div>
+            <div class="timer-bar-bg">
+              <div id="turn-timer-fill" class="timer-bar-fill"></div>
+            </div>
+          </div>
+
+          <div class="turn-slots-header">الإجابات المسجلة (تُكشف نهاية الجولة):</div>
+          <div id="turn-slots-grid" class="turn-slots-grid"></div>
+        </div>
       </div>
 
-      <!-- شريط الإدخال -->
-      <div>
+      <!-- أزرار المساعدة الإعلانية + شريط الإدخال -->
+      <div class="bottom-controls">
+        <div class="ad-helpers-row">
+          <button type="button" id="hint-ad-btn" onclick="triggerAdAction('hint')" class="helper-ad-btn hint-btn">
+            💡 كشف إجابة <span class="ad-tag">إعلان</span>
+          </button>
+          <button type="button" id="skip-ad-btn" onclick="triggerAdAction('skip')" class="helper-ad-btn skip-btn">
+            ⏭️ تخطي السؤال <span class="ad-tag">إعلان</span>
+          </button>
+        </div>
+
         <div id="feedback-msg" class="feedback-msg"></div>
+
         <form id="answer-form" class="answer-form">
           <input id="answer-input" type="text" autocomplete="off" class="input-field" placeholder="اكتب إجابة واضغط Enter...">
-          <button type="submit" class="btn btn-primary">اهبد</button>
+          <button id="submit-answer-btn" type="submit" class="btn btn-primary">اهبد</button>
         </form>
       </div>
     </section>
 
-    <!-- =====================================================
-         الهامش السفلي (الحقوق + الزر المخفي + التليقرام + الخصوصية)
-         ===================================================== -->
     <footer class="app-footer" dir="ltr">
       <span id="secret-trigger" style="cursor: default; user-select: none;">Made in the Room</span>
       <span class="footer-dot">•</span>
@@ -300,14 +207,19 @@
   </div>
 
   <!-- =====================================================
-4. نافذة نهاية الجولة / المباراة
+       4. نافذة نهاية الجولة / المباراة
        ===================================================== -->
   <div id="end-modal" class="modal-overlay hidden">
     <div class="modal-box">
       <h2 id="modal-title" class="modal-title">خلصت الجولة</h2>
+
+      <div id="turn-reveal-box" class="turn-reveal-box hidden">
+        <div class="turn-reveal-title">📋 كشف إجابات الجولة:</div>
+        <ul id="turn-reveal-list" class="turn-reveal-list"></ul>
+      </div>
+
       <ul id="ranking-list" class="ranking-list"></ul>
 
-      <!-- 4. مساحة إعلان بين الجولات -->
       <div id="modal-ad-space" class="ad-slot ad-banner-modal">
         <span class="ad-placeholder">مساحة إعلانية - بين الجولات (320×50)</span>
       </div>
@@ -317,20 +229,31 @@
   </div>
 
   <!-- =====================================================
-5. شاشة الانتظار بين الصفحات
+       5. نافذة عدّاد الإعلان (5 ثوانٍ)
+       ===================================================== -->
+  <div id="ad-reward-modal" class="modal-overlay hidden" style="z-index: 9000;">
+    <div class="modal-box" style="border: 2px solid #38bdf8;">
+      <div style="font-size: 2.4rem; margin-bottom: 6px;">📺</div>
+      <h3 id="ad-reward-title" class="modal-title" style="color: #38bdf8; font-size: 1.25rem;">جاري فتح الإعلان...</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+        انتظر انتهاء العدّاد ليتم تنفيذ طلبك تلقائياً
+      </p>
+      <div id="ad-reward-countdown" class="ad-countdown-circle">5</div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       6. شاشة الانتظار
        ===================================================== -->
   <div id="loading-overlay" class="loading-overlay hidden">
     <div class="loader-squares">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
     <p class="loading-text">جاري التجهيز...</p>
   </div>
 
   <!-- =====================================================
-6. نظام المقلب السري (يُفتح بالضغط 5 مرات على Made in the Room)
+       7. نظام المقلب السري
        ===================================================== -->
   <div id="prank-admin-modal" class="modal-overlay hidden" style="z-index: 9999;">
     <div class="modal-box" style="border: 2px solid #ef4444;">
@@ -344,7 +267,7 @@
         <input id="prank-msg-input" type="text" class="input-field" placeholder="مثال: تم تهكير جوالك بنجاح 😂">
       </div>
       <div style="display: flex; gap: 8px; margin-top: 12px;">
-        <button onclick="sendSecretPrank()" class="btn btn-primary" style="background: #ef4444; flex: 1;">أرسل المقلب 🚀</button>
+        <button onclick="sendSecretPrank()" class="btn btn-primary" style="background: #ef4444; color: #fff; flex: 1;">أرسل المقلب 🚀</button>
         <button onclick="document.getElementById('prank-admin-modal').classList.add('hidden')" class="btn btn-secondary">إغلاق</button>
       </div>
     </div>
@@ -361,7 +284,7 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import {
-      getFirestore, doc, setDoc, getDoc, updateDoc, onSnapshot, runTransaction,
+      getFirestore, doc, setDoc, updateDoc, onSnapshot, runTransaction,
       collection, query, orderBy, limit
     } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
@@ -378,8 +301,86 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // ضع رابط الإعلان المباشر (Direct Link) الخاص بك هنا:
+    const DIRECT_AD_URL = "https://nap5k.com/tag.min.js";
+
     // =========================================================
-    // بنك الـ 100 سؤال وتصنيف (يتم اختيار 5 جولات عشوائية كل مباراة)
+    // محرك المؤثرات الصوتية المدمج (Web Audio API)
+    // =========================================================
+    let soundEnabled = true;
+    let audioCtx = null;
+
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) audioCtx = new Ctx();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playTone(freq, type, duration, delay = 0, vol = 0.16) {
+      if (!soundEnabled) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+
+      const startTime = ctx.currentTime + delay;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, startTime);
+
+      gain.gain.setValueAtTime(vol, startTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(startTime);
+      osc.stop(startTime + duration);
+    }
+
+    const sfx = {
+      correct(isGolden = false) {
+        playTone(523.25, 'triangle', 0.14, 0, 0.2);     // C5
+        playTone(659.25, 'triangle', 0.18, 0.09, 0.22); // E5
+        if (isGolden) {
+          playTone(1046.5, 'sine', 0.28, 0.18, 0.24);   // C6 رنين ذهبي
+        }
+      },
+      wrong() {
+        playTone(210, 'sawtooth', 0.15, 0, 0.15);
+        playTone(155, 'sawtooth', 0.22, 0.11, 0.15);
+      },
+      tick() {
+        playTone(880, 'sine', 0.05, 0, 0.08);
+      },
+      timeout() {
+        playTone(440, 'square', 0.18, 0, 0.16);
+        playTone(349.23, 'square', 0.28, 0.18, 0.16);
+      },
+      roundStart() {
+        playTone(440, 'triangle', 0.1, 0, 0.15);
+        playTone(554.37, 'triangle', 0.1, 0.08, 0.15);
+        playTone(659.25, 'triangle', 0.18, 0.16, 0.18);
+      }
+    };
+
+    window.toggleSound = function() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById('sound-toggle-btn');
+      btn.textContent = soundEnabled ? '🔊' : '🔇';
+      if (soundEnabled) sfx.tick();
+    };
+
+    // تفعيل الصوت عند أول لمسة للشاشة
+    document.addEventListener('pointerdown', () => getAudioCtx(), { once: true });
+
+    // =========================================================
+    // بنك الأسئلة
     // =========================================================
     const questionsBank = [
       { category: "🏕️ كشتة وبر", question: "اذكر أداة أو غرض تأخذه معك في رحلة برية", answers: ["حطب","فحم","ولاعة","كبريت","دافور","غاز","ابريق","براد","دلة","فناجيل","بيالات","قهوة","شاي","هيل","سكر","تمر","ماء","جركل","ثلاجة","حافظة","فرشة","زولية","رواق","خيمة","مظلة","كشاف","لمبة","بطارية","محول","اشتراك","منفاخ","ماطور","واير","قلص","كريك","مسحاة","سكين","ساطور","قدر","كاتم","صحن","ملعقة","بهارات","ملح","زيت","بصل","طماطم","لحم","دجاج","رز","خبز","مناديل","صابون","كرسي","طاولة","حبل","شواية","شبك","فراش"] },
@@ -396,99 +397,29 @@
       { category: "🏛️ عواصم", question: "اذكر عاصمة دولة في العالم", answers: ["الرياض","ابوظبي","الكويت","الدوحة","المنامة","مسقط","صنعاء","بغداد","دمشق","بيروت","عمان","القدس","القاهرة","الخرطوم","طرابلس","تونس","الجزائر","الرباط","نواكشوط","مقديشو","جيبوتي","لندن","باريس","برلين","روما","مدريد","لشبونة","امستردام","بروكسل","برن","فيينا","ستوكهولم","اوسلو","كوبنهاغن","هلسنكي","وارسو","كييف","موسكو","انقرة","اثينا","واشنطن","اوتاوا","مكسيكو","برازيليا","بوينس ايرس","بكين","طوكيو","سيول","نيودلهي","اسلام اباد","كابول","طهران","جاكرتا","كوالالمبور","بانكوك","مانيلا","كانبيرا","نيروبي","داكار"] },
       { category: "🦁 حيوانات برية", question: "اذكر حيواناً برياً أو أليفاً", answers: ["اسد","نمر","فهد","ذئب","ثعلب","ضبع","دب","فيل","زرافة","وحيد القرن","فرس النهر","غزال","مها","وعل","جمل","ناقة","حصان","خيل","حمار","بقر","ثور","خروف","ماعز","تيس","كلب","قط","قطة","ارنب","سنجاب","قنفذ","فار","جرذ","قرد","غوريلا","شمبانزي","كنغر","كوالا","باندا","تمساح","سلحفاة","ثعبان","افعى","ضب","ورل","سحلية","ضفدع","يربوع","جربوع","نيص","ظبي","ايل","جاموس","لاما","نمس","ابن اوى"] },
       { category: "🦅 طيور", question: "اذكر نوعاً من الطيور", answers: ["صقر","نسر","عقاب","باز","شاهين","حر","جير","وكري","بومة","غراب","حمامة","حمام","يمامة","عصفور","بلبل","هدهد","نعامة","بطريق","دجاجة","ديك","بطة","بط","وزة","اوز","بجعة","نورس","طاووس","ببغاء","كروان","حبارى","قطا","سمان","فري","ديك رومي","لقلق","مالك الحزين","فلامنغو","نحام","كناري","حسون","زرزور","سنونو","طائر الطنان","نقار الخشب","كاسكو","قمري","دوري"] },
-      { category: "🦈 كائنات بحرية", question: "اذكر سمكة أو كائناً يعيش في البحر", answers: ["قرش","حوت","دولفين","اخطبوط","حبار","سلطعون","قبقب","روبيان","جمبري","استاكوزا","محار","قنديل البحر","نجم البحر","فرس البحر","سردين","تونة","سلمون","هامور","كنعد","شعري","ناجل","حريد","صافي","زبيدي","ميد","بياح","سبيطي","عقام","باراكودا","سمك موسى","بلطي","بوري","قرموط","ترسة","سلحفاة بحرية","فقمة","اسد البحر","فظ","عجل البحر","مرجان","اسفنج","شعاب مرجانية","ثعبان البحر","شيطان البحر","لخمة"] },
       { category: "🍎 فواكه", question: "اذكر نوعاً من الفواكه", answers: ["تفاح","موز","برتقال","يوسفي","افندي","ليمون","عنب","فراولة","توت","كرز","خوخ","مشمش","برقوق","كمثرى","اجاص","رمان","تين","بطيخ","حبحب","جح","شمام","خربز","مانجو","اناناس","كيوي","بابايا","جوافة","افوكادو","جوز الهند","نارجيل","بلح","رطب","تمر","نبق","سدر","كاكا","ليتشي","دراق","قشطة","بوملي","جريب فروت","زبيب"] },
-      { category: "🥕 خضروات", question: "اذكر نوعاً من الخضروات أو الورقيات", answers: ["طماطم","بندورة","خيار","بطاطس","بطاطا","بصل","ثوم","جزر","كوسة","باذنجان","فلفل","فلفل رومي","فلفل حار","قرع","يقطين","بامية","فاصوليا","لوبيا","بازلاء","فول","عدس","حمص","ذرة","ملفوف","كرنب","زهرة","قرنبيط","بروكلي","خس","جرجير","بقدونس","كزبرة","نعناع","شبت","سبانخ","ملوخية","كراث","فجل","لفت","شمندر","بنجر","زنجبيل","كرفس","خرشوف","هليون","فطر","مشروم","ورق عنب"] },
-      { category: "🧂 بهارات", question: "اذكر نوعاً من البهارات أو التوابل أو الأعشاب", answers: ["ملح","فلفل اسود","فلفل ابيض","كمون","كزبرة","كركم","هيل","حبهان","قرفة","دارسين","قرنفل","مسمار","زنجبيل","زعفران","سماق","بابريكا","شطه","فلفل حار","ورق غار","لومي","ليمون اسود","جوزة الطيب","يانسون","شمر","حبة البركة","حبة سوداء","سمسم","خردل","كاري","ماجي","زعتر","اكليل الجبل","روزماري","ريحان","حبق","مريمية","بابونج","شيح","قيصوم","عصفر","خولنجان"] },
       { category: "☕ مشروبات", question: "اذكر مشروباً ساخناً أو بارداً", answers: ["ماء","مويه","شاي","قهوة","قهوة عربية","قهوة تركية","اسبريسو","امريكانو","لاتيه","كابتشينو","موكا","سبانش لاتيه","ماتشا","نسكافيه","هوت شوكليت","كاكاو","حليب","لبن","عصير","عصير برتقال","عصير تفاح","عصير مانجو","عصير فراولة","عصير ليمون","ليمون بالنعناع","كوكتيل","سموذي","موهيتو","بيبسي","كولا","كوكاكولا","سفن اب","سبرايت","ميرندا","فانتا","ديو","ماونتن ديو","ريد بول","كود رد","بايسن","سحلب","زنجبيل","يانسون","نعناع","كركديه","قرفة","حلبة","سوبيا","فيمتو","تانج","شاي كرك","شاي عدني"] },
       { category: "🍰 حلويات", question: "اذكر نوعاً من الحلويات أو المعجنات", answers: ["كيك","تورتة","بسبوسة","كنافة","بقلاوة","لقيمات","قطايف","معمول","غريبة","بيتي فور","كوكيز","براونيز","دونات","كروسان","سينابون","وافل","بان كيك","كريب","ايسكريم","جيلاتي","مهلبية","كاسترد","كريم كراميل","جلي","ام علي","تراميسو","تشيز كيك","ماكرون","شوكولاتة","حلاوة طحينية","رهش","حلقوم","ملبن","زلابية","بلح الشام","اصابع زينب","عوامة","حنيني","كليجا","مقشوش","تمرية","نوتيلا","عسل","مربى"] },
-      { category: "🍳 أدوات المطبخ", question: "اذكر شيئاً موجوداً داخل المطبخ", answers: ["ثلاجة","فريزر","فرن","بوتاجاز","ميكرويف","خلاط","عجانة","غلاية","محمصة","توستر","قلاية هوائية","مقلاة","طاوة","قدر","قدر ضغط","كاتم","صحن","طبق","كوب","كاس","كاسة","فنجان","بيالة","ابريق","دلة","ترمس","زمزمية","ملعقة","شوكة","سكين","ساطور","مغرفة","مبشرة","مصفاة","مشخال","لوح تقطيع","صينية","مغسلة","صنبور","اسفنجة","صابون","فيري","مناديل","قصدير","نايلون","سفرة","علبة","برطمان","دولاب","درج","شفاط","طاولة","كرسي","ميزان","فتاحة","مقص","هراسة","مضرب بيض"] },
       { category: "🔧 أجزاء السيارة", question: "اذكر قطعة أو جزءاً في السيارة", answers: ["مكينة","محرك","قير","ناقل حركة","رديتر","بطارية","دينمو","سلف","بواجي","فحمات","هوبات","فرامل","مكابح","كفر","كفرات","اطار","جنط","مساعدات","يايات","مقصات","عكوس","عمود كردان","دفرنس","شكمان","كنداسة","تانكي","خزان وقود","طرمبة","فلتر","زيت","دركسون","طارة","مقود","مقعد","مرتبة","حزام امان","ايرباق","طبلون","عداد","مسجل","شاشة","مكيف","كمبروسر","مروحة","نور","شمعة","اسطب","اشارة","غماز","مراية","زجاج","قزاز","مساحات","صدام","رفرف","كبوت","شنطة","باب","مقبض","بوري","هرن","استبنة","عفريتة"] },
       { category: "📱 تطبيقات ومواقع", question: "اذكر تطبيقاً أو موقعاً إلكترونياً مشهوراً", answers: ["واتساب","سناب شات","انستقرام","تويتر","اكس","تيك توك","يوتيوب","فيسبوك","تيليقرام","ديسكورد","لينكد ان","بينتريست","ريديت","قوقل","جيميل","خرائط قوقل","قوقل ماب","زوم","تيمز","نتفليكس","شاهد","يوتيوب ميوزك","سبوتيفاي","ساوند كلاود","انغامي","اوبر","كريم","جاهز","هنقرستيشن","مرسول","تويو","نون","امازون","علي اكسبريس","شي ان","حراج","ابشر","توكلنا","نفاذ","صحتي","الراجحي","اس تي سي باي","مدى باي","ابل باي","باي بال","تشات جي بي تي","جيميناي","كانفا","فوتوشوب"] },
-      { category: "💻 شركات تقنية", question: "اذكر شركة تقنية أو ماركة جوالات أو كمبيوتر", answers: ["ابل","سامسونج","هواوي","شاومي","اوبو","فيفو","ريلمي","ون بلس","هونر","نوكيا","موتورولا","سوني","ال جي","اتش تي سي","قوقل","مايكروسوفت","ديل","اتش بي","لينوفو","اسوس","ايسر","ام اس اي","توشيبا","انتل","اي ام دي","نفيديا","كوالكوم","ميتا","امازون","تسلا","سيسكو","اوراكل","اي بي ام","ادوبي","سبوتيفاي","نتفليكس","اوبر","نينتندو","بلايستيشن","اكس بوكس","ريزر","لوجيتك","كانون","نيكون","باناسونيك","فيليبس","بوش"] },
-      { category: "👕 ملابس وأزياء", question: "اذكر نوعاً من الملابس أو الأزياء أو الإكسسوارات", answers: ["ثوب","شماغ","غترة","عقال","طاقية","بشت","مشلح","فروة","سديري","عباية","طرحة","نقاب","حجاب","فستان","تنورة","بلوزة","قميص","تيشيرت","بنطلون","جينز","شورت","بدلة","جاكيت","معطف","بالطو","بلوفر","هودي","كنزة","بيجامة","ملابس داخلية","شراب","جوارب","حذاء","جزمة","كنادر","نعال","صندل","شبشب","بوت","قبعة","كاب","نظارة","ساعة","خاتم","سوار","اسوارة","عقد","سلسال","حلق","حزام","محفظة","شنطة","حقيبة","ربطة عنق","كرافتة"] },
-      { category: "🎨 ألوان", question: "اذكر لوناً أو درجة لونية", answers: ["احمر","ازرق","اخضر","اصفر","اسود","ابيض","برتقالي","بنفسجي","وردي","زهري","بني","رمادي","رصاصي","بيج","سماوي","كحلي","نيلي","تركواز","فيروزي","عنابي","عودي","خمري","زيتي","فستقي","ليموني","ذهبي","فضي","برونزي","نحاسي","كريمي","عاجي","لؤلؤي","موف","ليلكي","مشمشي","كموني","خردلي","بترولي","تفاحي","عشبي","سلفر","قرمزي","ارجواني"] },
-      { category: "👷 مهن ووظائف", question: "اذكر مهنة أو وظيفة", answers: ["طبيب","دكتور","ممرض","صيدلي","مهندس","معلم","مدرس","استاذ","محامي","قاضي","ضابط","جندي","شرطي","رجل اطفاء","طيار","مضيف","كابتن","سائق","مبرمج","مصمم","محاسب","مدير","سكرتير","موظف","تاجر","بائع","كاشير","حلاق","خياط","نجار","حداد","سباك","كهربائي","ميكانيكي","بناء","عامل","مزارع","راعي","صياد","طباخ","شيف","خباز","جزار","لحام","صحفي","مذيع","مصور","ممثل","مخرج","كاتب","مترجم","امين مكتبة","حارس امن"] },
-      { category: "✏️ أدوات مدرسية", question: "اذكر أداة مدرسية أو مكتبية", answers: ["قلم","قلم رصاص","قلم حبر","قلم سبورة","دفتر","كراسة","كتاب","مذكرة","مسطرة","ممحاة","مساحة","براية","مقلمة","شنطة","حقيبة","ملف","دوسيه","ورق","ورقة","تدبيس","دباسة","دبابيس","مشبك ورق","مقص","صمغ","غراء","شريط لاصق","تيب","الوان","الوان خشبية","الوان مائية","فرشاة رسم","لوحة","سبورة","طباشير","آلة حاسبة","فرجار","منقلة","مثلث","مجلد","مفكرة","تقويم","ختم","حبر","طابعة","سكانر","فلاش ميموري"] },
-      { category: "🛋️ أثاث المنزل", question: "اذكر قطعة أثاث أو جهازاً منزلياً", answers: ["كنب","كنبة","اريكة","سرير","مرتبة","مخدة","وسادة","بطانية","لحاف","شرشف","دولاب","خزانة","تسريحة","كومودينة","طاولة","مائدة","كرسي","مكتب","مكتبة","رف","سجادة","زولية","موكيت","ستارة","مكيف","سبليت","مروحة","دفاية","مدفأة","تلفزيون","شاشة","رسيفر","مكنسة","غسالة","نشافة","مكواة","كواية","سخان","فلتر ماء","نجفة","ثريا","اباجورة","مصباح","مرآة","مراية","ساعة حائط","لوحة","مزهرية","فازة","طفاية"] },
-      { category: "🫀 جسم الإنسان", question: "اذكر عضواً أو جزءاً في جسم الإنسان", answers: ["راس","شعر","وجه","جبهة","عين","حاجب","رمش","انف","خشم","اذن","فم","شفة","لسان","اسنان","ضرس","ذقن","خد","رقبة","عنق","كتف","صدر","ظهر","بطن","خصر","يد","ذراع","كوع","مرفق","معصم","كف","اصبع","ابهام","سبابة","وسطى","بنصر","خنصر","ظفر","رجل","ساق","فخذ","ركبة","قدم","كعب","قلب","رئة","كبد","كلية","معدة","امعاء","دماغ","مخ","عقل","عظم","عضلة","جلد","دم","شريان","وريد","عمود فقري","حنجرة","بلعوم"] },
-      { category: "🏅 رياضات", question: "اذكر نوعاً من الرياضات والألعاب البدنية", answers: ["كرة القدم","كرة السلة","كرة الطائرة","كرة اليد","تنس","تنس طاولة","بادل","ريشة طائرة","سباحة","غوص","ركض","جري","مشي","ماراثون","وثب طويل","وثب عالي","رمي الرمح","رمي الجلة","رفع اثقال","كمال اجسام","جمباز","ملاكمة","مصارعة","كاراتيه","تايكوندو","جودو","كونغ فو","جوجيتسو","مبارزة","رماية","قوس وسهم","فروسية","ركوب الخيل","سباق الهجن","سباق سيارات","فورمولا ون","رالي","ركوب دراجات","تزلج","هوكي","بيسبول","قولف","بلياردو","بولينج","شطرنج","كريكيت","رقبي","كرة ماء","تجديف"] },
-      { category: "💵 عملات", question: "اذكر عملة دولة في العالم", answers: ["ريال","ريال سعودي","ريال قطري","ريال عماني","ريال يمني","درهم","درهم اماراتي","درهم مغربي","دينار","دينار كويتي","دينار بحريني","دينار اردني","دينار عراقي","دينار جزائري","دينار تونسي","دينار ليبي","جنيه","جنيه مصري","جنيه استرليني","جنيه سوداني","دولار","دولار امريكي","دولار كندي","دولار استرالي","يورو","ين","ين ياباني","يوان","يوان صيني","ليرة","ليرة تركية","ليرة سورية","ليرة لبنانية","روبية","روبية هندية","روبية باكستانية","روبل","روبل روسي","فرنك","فرنك سويسري","وون","وون كوري","رينغيت","بيزو","شلن","كرونة","تومان"] },
-      { category: "📅 شهور وفصول", question: "اذكر شهراً هجرياً أو ميلادياً أو فصلاً من فصول السنة", answers: ["محرم","صفر","ربيع الاول","ربيع الثاني","ربيع الاخر","جمادى الاولى","جمادى الاخرة","جمادى الثانية","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة","يناير","فبراير","مارس","ابريل","مايو","يونيو","يوليو","اغسطس","سبتمبر","اكتوبر","نوفمبر","ديسمبر","كانون الثاني","شباط","اذار","نيسان","ايار","حزيران","تموز","اب","ايلول","تشرين الاول","تشرين الثاني","كانون الاول","الصيف","الشتاء","الربيع","الخريف","المربعانية","الوسم","سهيل"] },
-      { category: "🔨 أدوات وعدد", question: "اذكر أداة بناء أو صيانة أو عدة يدوية", answers: ["مطرقة","شاكوش","مفك","سكروب","زرادية","كماشة","مفتاح","مفتاح انجليزي","منشار","دريل","مثقاب","صاروخ","مسمار","برغي","صامولة","وردة","خشب","حديد","المونيوم","نحاس","اسمنت","جبس","رمل","طوب","بلك","بلاط","سيراميك","رخام","بويه","دهان","طلاء","فرشاة","رولة","معجون","ورق صنفرة","متر","ميزان ماء","سلم","درج","عربية","شيول","رافعة","لحام","كاوية","شطرطون","تيب","سلك","كيبل","ماسورة","انبوب","محبس","حنفية"] },
-      { category: "🗽 معالم عالمية", question: "اذكر معلماً سياحياً أو أثرياً مشهوراً في العالم", answers: ["برج ايفل","الاهرامات","ابو الهول","سور الصين العظيم","تاج محل","برج خليفة","برج بيزا","الكولوسيوم","تمثال الحرية","بيغ بن","ساعة بيج بن","ساعة مكة","المسجد الحرام","المسجد النبوي","المسجد الاقصى","قبة الصخرة","البتراء","مدائن صالح","الحجر","العلا","برج العرب","متحف اللوفر","قصر باكنغهام","البيت الابيض","جسر البوابة الذهبية","شلالات نياجرا","جبل ايفرست","جبل فوجي","نهر النيل","نهر الامازون","ماتشو بيتشو","اكروبوليس","ايا صوفيا","جامع الشيخ زايد","برج القاهرة","قلعة صلاح الدين"] },
-      { category: "🏜️ مناطق ومعالم السعودية", question: "اذكر منطقة أو معلماً أو وادياً في السعودية", answers: ["الرياض","مكة المكرمة","المدينة المنورة","القصيم","الشرقية","عسير","تبوك","حائل","الحدود الشمالية","جازان","نجران","الباحة","الجوف","الدرعية","البجيري","حي الطريف","بوليفارد","المملكة","الفيصلية","وادي حنيفة","وادي الرمة","وادي الدواسر","الربع الخالي","النفود","الدهناء","طويق","جبل طويق","جبل اللوز","جبل السودة","جبل احد","جبل النور","غار حراء","غار ثور","جبال اجا","جبال سلمى","العلا","مدائن صالح","الحجر","جبل الفيل","جزيرة فرسان","نيوم","القدية","البحر الاحمر","امالا","سندالة","جدة التاريخية","البلد","نافورة جدة","شاطئ نصف القمر","هاف مون","الاحساء","جبل القارة","رجال المع","ذي عين"] },
       { category: "🍔 مطاعم وكافيهات", question: "اذكر مطعماً أو كافيه مشهوراً", answers: ["البيك","ماكدونالدز","ماك","كنتاكي","هرفي","كودو","برجر كنج","هارديز","شاورمر","الطازج","الرومانسية","الناضج","شواية الخليج","بيت الشواية","ماما نورة","عمو حمزة","دومينوز","بيتزا هت","بابا جونز","مايسترو","صب واي","تكساس","بافلو","فايف قايز","شيك شاك","بيق تيستي","جان برجر","هامبرغيني","واقيو","ستاربكس","دانكن","دانكن دونتس","تيم هورتنز","كوستا","بارنز","هاف مليون","عنوان القهوة","دوز","خطوة جمل","ارابيكا","جافا تايم","كاريبو","باسكن روبنز","كون زون","سينابون","كريسبي كريم"] },
-      { category: "🛒 منتجات البقالة", question: "اذكر منتجاً تشتريه من البقالة أو السوبرماركت", answers: ["خبز","توست","صامولي","حليب","لبن","زبادي","جبن","جبنة","قشطة","زبدة","سمن","بيض","رز","مكرونة","اندومي","شوفان","دقيق","سكر","ملح","زيت","زيت زيتون","طماطم","معجون طماطم","كاتشب","مايونيز","شطه","خردل","طحينة","عسل","مربى","حلاوة","نوتيلا","تونة","فول","فاصوليا","ذرة","زيتون","مخلل","شاي","قهوة","نسكافيه","عصير","ماء","بيبسي","شيبس","بطاطس","بسكويت","شوكولاتة","كيك","علك","لبان","مناديل","صابون","شامبو","معجون اسنان","فرشاة","كلوركس","فيري","تايد"] },
-      { category: "🌟 صفات وأخلاق", question: "اذكر صفة حميدة أو خلقاً حسناً", answers: ["الصدق","الامانة","الكرم","الجود","الشجاعة","الاقدام","الوفاء","الاخلاص","التواضع","الحلم","الصبر","العفو","التسامح","الرحمة","الشفقة","العدل","الانصاف","الحياء","العفة","الاحسان","بر الوالدين","صلة الرحم","الرفق","اللين","البشاشة","التفاؤل","القناعة","الرضا","الشكر","الحمد","الزهد","الورع","التقوى","المروءة","الشهامة","النخوة","الفزعة","الايثار","التعاون","التكاتف","الاحترام","التقدير","الادب","الذوق","الحكمة","الذكاء","الفطنة","الرزانة","الهدوء","الطموح","الاجتهاد","المثابرة","الالتزام","الانضباط"] },
-      { category: "⛈️ ظواهر طبيعية وجوية", question: "اذكر ظاهرة جوية أو طبيعية في الأرض", answers: ["مطر","امطار","برد","ثلج","صقيع","ندى","ضباب","غيم","سحاب","رعد","برق","صاعقة","عاصفة","اعصار","رياح","هواء","نسيم","غبار","عج","سافي","شمس","حرارة","برودة","رطوبة","جفاف","قوس قزح","قوس المطر","زلزال","هزة ارضية","بركان","تسونامي","فيضان","سيل","سيول","انزلاق ارضي","انهيار ثلجي","كسوف","خسوف","شفق قطبي","مد وجزر","سراب","شروق","غروب","فجر","ليل","نهار"] },
-      { category: "🚀 الفضاء والفلك", question: "اذكر كوكباً أو جرماً سماوياً أو مصطلحاً في الفضاء", answers: ["الشمس","القمر","الارض","عطارد","الزهرة","المريخ","المشتري","زحل","اورانوس","نبتون","بلوتو","نجم","نجوم","مجرة","درب التبانة","كوكب","كويكب","مذنب","نيزك","شهاب","ثقب اسود","سديم","قمر صناعي","محطة فضاء","صاروخ","مكوك","مركبة فضائية","رائد فضاء","تلسكوب","منظار","مدار","جاذبية","انعدام الجاذبية","سنة ضوئية","كون","فضاء","سماء","غلاف جوي","هلال","بدر","محاق","سهيل","الثريا","الجوزاء","نجم القطب"] },
-      { category: "🎸 آلات موسيقية", question: "اذكر آلة موسيقية أو إيقاعية", answers: ["عود","بيانو","جيتار","كمان","قانون","ناي","مزمار","ربابة","طبل","طبلة","دف","طيران","مرواس","زير","بوق","ساكسفون","كلارينيت","فلوت","هارمونيكا","اكورديون","اورج","كيبورد","تشيلو","كونترباص","هارب","قيثارة","بانجو","مندولين","درامز","صاجات","مثلث","رق","دربكة","سمسمية","بزق"] },
-      { category: "🤒 أمراض وأعراض", question: "اذكر مرضاً أو عرضاً صحياً شائعاً", answers: ["زكام","رشح","انفلونزا","كحة","سعال","حرارة","حمى","صداع","شقيقة","مغص","الم بطن","غثيان","استفراغ","اسهال","امساك","حساسية","ربو","ضيق تنفس","التهاب حلق","التهاب لوز","التهاب اذن","الم اسنان","تسوس","ضغط","سكري","سمنة","نحافة","فقر دم","انيميا","نقص فيتامين","كسر","التواء","شد عضلي","ديسك","عرق النسا","روماتيزم","خشونة","اكزيما","بهاق","صدفية","جدري","حصبة","ملاريا","تيفوئيد","قولون","قرحة","حموضة","ارتجاع","ارق","دوخة","دوار","اغماء","جفاف"] },
-      { category: "🏥 المستشفى والصيدلية", question: "اذكر شيئاً تجده في المستشفى أو الصيدلية", answers: ["دواء","علاج","حبوب","كبسولات","شراب","مضاد حيوي","مسكن","بندول","فيفادول","ابرة","حقنة","سرنجة","مغذي","محلول","شاش","قطن","لصقة جروح","بلاستر","معقم","كحول","مسحة طبية","بيتادين","مرهم","كريم","قطرة","بخاخ","كمامة","قفازات","سماعة طبيب","جهاز ضغط","جهاز سكر","ميزان حرارة","ترمومتر","اشعة","رنين","تحليل","مختبر","سرير طبي","كرسي متحرك","عكاز","جبيرة","جبس","غرفة عمليات","طوارئ","اسعاف","وصفة طبية","روشتة","فيتامينات","حليب اطفال","حفاظات"] },
-      { category: "✈️ أغراض السفر", question: "اذكر شيئاً تحتاجه أو تأخذه معك في السفر", answers: ["جواز سفر","هوية","بطاقة","تذكرة","فيزا","تأشيرة","شنطة","حقيبة","شنطة ظهر","فلوس","نقود","كاش","بطاقة بنكية","فيزا كارد","شاحن","شاحن متنقل","باور بانك","سماعات","جوال","لابتوب","كاميرا","محول كهرباء","فيش ثلاثي","ملابس","حذاء","نظارة شمسية","عطر","فرشاة اسنان","معجون","مزيل عرق","مشط","مقص اظافر","ادوية","مسكن","مخدة سفر","قناع نوم","سدادات اذن","كتاب","مصحف","سجادة صلاة","مظلة","جاكيت","قفل","حزام","زمزمية","سناك"] },
-      { category: "👦 أسماء أولاد", question: "اذكر اسم ولد عربي شائع", answers: ["محمد","احمد","عبدالله","عبدالعزيز","عبدالرحمن","خالد","فهد","سلمان","سلطان","تركي","فيصل","سعود","بندر","نايف","نواف","طلال","مشعل","متعب","ماجد","ناصر","منصور","سعد","مساعد","عمر","علي","حسن","حسين","عثمان","ابراهيم","يوسف","ياسر","طارق","وليد","زياد","يزيد","ريان","راكان","عادل","سامي","صالح","سليمان","داود","موسى","عيسى","نوح","ادم","حمزة","بلال","انس","معاذ","صهيب","مصعب","بدر","مشاري","ثامر","عزام","مهند","هشام","وائل","كريم","جمال","كمال","اسامة"] },
-      { category: "👧 أسماء بنات", question: "اذكر اسم بنت عربي شائع", answers: ["نورة","سارة","فاطمة","عائشة","مريم","زينب","خديجة","هدى","منى","امل","احلام","ابتسام","ايمان","اسماء","اروى","الجوهرة","العنود","البندري","الهنوف","مها","ريم","ريما","لمى","لمياء","لجين","ليان","ليلى","لينا","لولوة","حصة","مزنة","منيرة","لطيفة","موضي","شيخة","شوق","شهد","شذى","رغد","رهف","روان","رزان","رتاج","جود","جوري","جنا","حلا","غادة","غيداء","عبير","عفاف","نجلاء","ندى","نهى","هند","هيا","هيفاء","وفاء","ياسمين","دانة","دلال","سلمى","سميرة","سعاد"] },
-      { category: "📺 كرتون وأنمي", question: "اذكر اسم مسلسل كرتون أو أنمي مشهور", answers: ["كونان","المحقق كونان","ون بيس","ناروتو","دراغون بول","هجوم العمالقة","بليتش","هنتر","القناص","ديث نوت","مذكرة الموت","بوكيمون","ديجيمون","ابطال الديجيتال","كابتن ماجد","سلام دانك","عدنان ولينا","سالي","ريمي","هايدي","فلونة","ساندي بيل","غرندايزر","مازنجر","توم وجيري","سبونج بوب","غامبول","وقت المغامرة","بن تن","باتمان","سوبرمان","سبايدرمان","سلاحف النينجا","السنافر","بكار","فريج","شعبية الكرتون","مسامير","يعرب","الاسد الملك","علاء الدين","سندريلا","شركة المرعبين","حكاية لعبة"] },
-      { category: "🎓 مواد وتخصصات", question: "اذكر مادة دراسية أو تخصصاً جامعياً", answers: ["رياضيات","فيزياء","كيمياء","احياء","علوم","لغة عربية","نحو","ادب","بلاغة","انجليزي","لغة انجليزية","فرنسي","تاريخ","جغرافيا","تربية اسلامية","فقه","توحيد","تفسير","حديث","قران","حاسب","برمجة","علوم حاسب","هندسة برمجيات","نظم معلومات","امن سيبراني","ذكاء اصطناعي","هندسة","هندسة مدنية","هندسة كهربائية","هندسة ميكانيكية","هندسة معمارية","عمارة","طب","طب بشري","طب اسنان","صيدلة","تمريض","مختبرات طبية","ادارة اعمال","محاسبة","مالية","اقتصاد","تسويق","قانون","حقوق","شريعة","اعلام","صحافة","علم نفس","علم اجتماع","تربية بدنية","فنية"] },
-      { category: "🕌 المسجد", question: "اذكر شيئاً تراه أو تجده داخل المسجد", answers: ["مصحف","قران","منبر","محراب","مئذنة","منارة","قبة","سجاد","فرش","ميكروفون","لاقط","سماعة","مكبر صوت","ساعة","ساعة اذان","مكيف","مروحة","نجفة","ثريا","لمبة","مكتبة","رف مصاحف","كرسي","كرسي صلاة","عكاز","عصا","سبحة","مسبحة","سواك","مسواك","طيب","عود","بخور","مبخرة","عطر","مناديل","ماء","زمزم","براد ماء","كاسات","حامل مصحف","باب","نافذة","عمود","سارية","مواضئ","ميضأة","دورة مياه","حذاء","رف احذية","حصالة","تبرعات"] },
       { category: "⚽ نجوم الكرة", question: "اذكر لاعب كرة قدم عالمي أو عربي مشهور", answers: ["ميسي","كريستيانو","رونالدو","نيمار","مبابي","هالاند","صلاح","محمد صلاح","بنزيما","مودريتش","كروس","دي بروين","ليفاندوفسكي","سواريز","بيلينجهام","فينيسيوس","لامين يامال","رودري","كانتي","محرز","رياض محرز","حكيمي","اشرف حكيمي","سالم الدوسري","سامي الجابر","ماجد عبدالله","ياسر القحطاني","محمد نور","الشلهوب","فهد المولد","العويس","البليهي","تمبكتي","كنو","سلمان الفرج","ابوتريكة","زيدان","مارادونا","بيليه","رونالدينيو","كاكا","انييستا","تشافي","بويول","راموس","نوير","بوفون","كاسياس","بونو","ياسين بونو"] },
       { category: "🌴 نخيل وتمور", question: "اذكر نوعاً من أنواع التمور المشهورة", answers: ["سكري","اخلاص","خلاص","صقعي","عجوة","مجدول","برحي","روثانة","صفري","نبتة علي","نبتة سيف","خضري","شيشي","رزيز","مكتومي","منيفي","سلطانة","عنبرة","حلوة","حلوة الجوف","حساوية","هلالي","قطارة","قسب","دقلة نور","مجهول","برني","صفاوي","كعيكة","ونانة"] },
-      { category: "💍 مناسبات وأفراح", question: "اذكر شيئاً يرتبط بالزواج والمناسبات والأفراح", answers: ["عريس","عروس","قاعة","قصر افراح","بشت","فستان","شبكة","مهر","دبلة","خاتم","عقد","زفة","عرضة","سامري","دف","طبل","بخور","عود","دهن عود","ورد","بوكيه","كوشة","تصوير","مصور","ضيافة","قهوة","تمر","حلى","عشاء","وليمة","ذبيحة","مفطح","بطاقة دعوة","معازيم","شهر عسل","مباركة","تهنئة"] },
-      { category: "🌙 رمضان والعيد", question: "اذكر شيئاً يميز شهر رمضان أو العيد", answers: ["صيام","سحور","فطور","افطار","اذان المغرب","تمر","ماء","سمبوسة","لقيمات","شوربة","فيمتو","سوبيا","تراويح","قيام الليل","تهجد","قران","ختمة","ليلة القدر","اعتكاف","زكاة الفطر","صدقة","هلال","فانوس","عيدية","تكبيرات العيد","صلاة العيد","حلاوة العيد","معمول","كليجا","ملابس العيد","ثوب جديد","زيارة الاقارب","معايدة"] },
-      { category: "🏕️ طيور وحيوانات البر", question: "اذكر كائناً يعيش في صحراء الجزيرة العربية", answers: ["ضب","يربوع","جربوع","ورل","ثعلب","حصني","ذئب","ضبع","غزال","ريم","مها","وضيحي","وعل","ارنب بري","قنفذ","عقرب","ثعبان","افعى","ام جنيب","حرباء","سحلية","خنفساء","جراد","نمل","عنكبوت","صقر","حبارى","كروان","قطا","بومة","غراب","نسر","عقاب","هدهد","ام سالم","جمل","ناقة"] },
-      { category: "🌊 البحار والمحيطات", question: "اذكر بحراً أو محيطاً أو خليجاً أو مضيقاً", answers: ["البحر الاحمر","الخليج العربي","بحر العرب","البحر المتوسط","البحر الميت","البحر الاسود","بحر قزوين","بحر ايجه","المحيط الهادئ","المحيط الاطلسي","المحيط الهندي","المحيط المتجمد","مضيق هرمز","باب المندب","قناة السويس","مضيق جبل طارق","مضيق البوسفور","خليج عدن","خليج عمان","خليج العقبة"] },
-      { category: "🏞️ أنهار عالمية", question: "اذكر نهراً مشهوراً في العالم", answers: ["النيل","الفرات","دجلة","الامازون","المسيسيبي","الدانوب","الراين","السين","التايمز","الفولغا","اليانغتسي","النهر الاصفر","الغانج","السند","الاردن","العاصي","الليطاني","بردى","شط العرب","الكونغو","النيجر","زامبيزي"] },
-      { category: "🌲 أشجار ونباتات", question: "اذكر نوعاً من الأشجار أو النباتات أو الزهور", answers: ["نخلة","سدر","طلح","سمر","غضا","ارطى","رمث","عوسج","زيتون","تين","رمان","عنب","تفاح","برتقال","ليمون","موز","مانجو","سنديان","بلوط","صنوبر","ارز","صفصاف","كافور","خيزران","بامبو","صبار","ورد","جوري","ياسمين","فل","نرجس","توليب","زنبق","اقحوان","خزامى","لافندر","ريحان","نعناع","شيح","قيصوم"] },
-      { category: "💎 معادن وأحجار كريمة", question: "اذكر معدناً أو حجراً كريماً", answers: ["ذهب","فضة","نحاس","حديد","المونيوم","رصاص","قصدير","زنك","نيكل","تيتانيوم","بلاتين","زئبق","يورانيوم","فولاذ","برونز","الماس","ياقوت","زمرد","زفير","لؤلؤ","مرجان","عقيق","فيروز","كهرمان","جمشت","توباز","اوبال","يشم","كوارتز","جرانيت","رخام"] },
-      { category: "⚡ أجهزة إلكترونية", question: "اذكر جهازاً إلكترونياً أو كهربائياً", answers: ["جوال","هاتف","ايفون","ايباد","تابلت","لابتوب","كمبيوتر","شاشة","تلفزيون","بلايستيشن","اكس بوكس","نينتندو","سماعات","ايربودز","مكبر صوت","سبيكر","ساعة ذكية","كاميرا","طابعة","راوتر","مودم","شاحن","باور بانك","فلاش","هارديسك","ماوس","فأرة","كيبورد","لوحة مفاتيح","بروجكتر","مكيف","ثلاجة","غسالة","ميكرويف","خلاط","مكنسة","مكواة","سشوار"] },
-      { category: "🌐 مصطلحات الإنترنت", question: "اذكر مصطلحاً يُستخدم في الإنترنت أو التواصل الاجتماعي", answers: ["لايك","اعجاب","تعليق","كومنت","مشاركة","شير","متابعة","فولو","حظر","بلوك","منشن","هاشتاق","ترند","ستوري","حالة","بث مباشر","لايف","ريلز","شورتس","بودكاست","رابط","لينك","تحميل","داونلود","رفع","ابلود","واي فاي","بيانات","سيرفر","موقع","تطبيق","حساب","باسورد","كلمة سر","ايميل","بريد","اشعار","كود","تحديث"] },
-      { category: "🏛️ وزارات وهيئات", question: "اذكر وزارة أو هيئة حكومية في السعودية", answers: ["وزارة الداخلية","وزارة الدفاع","وزارة الخارجية","وزارة التعليم","وزارة الصحة","وزارة المالية","وزارة التجارة","وزارة العدل","وزارة الطاقة","وزارة السياحة","وزارة الرياضة","وزارة الثقافة","وزارة الاعلام","وزارة النقل","وزارة البلديات","وزارة الموارد البشرية","وزارة الحج","وزارة البيئة","هيئة الترفيه","هيئة السياحة","هيئة الزكاة","هيئة الاتصالات","هيئة الغذاء والدواء","هيئة البيانات","سدايا","المرور","الجوازات","الاحوال المدنية","الدفاع المدني","امانة"] },
-      { category: "✈️ شركات طيران ومطارات", question: "اذكر شركة طيران أو مطاراً مشهوراً", answers: ["الخطوط السعودية","طيران ناس","طيران اديل","طيران الرياض","الاماراتية","طيران الامارات","الاتحاد","القطرية","الخطوط القطرية","الكويتية","الخليج","العمانية","الملكية الاردنية","مصر للطيران","التركية","الخطوط التركية","البريطانية","لوفتهانزا","الفرنسية","مطار الملك خالد","مطار الملك عبدالعزيز","مطار الملك فهد","مطار دبي","مطار حمد","مطار هيثرو","مطار اسطنبول"] },
-      { category: "🏢 غرف ومرافق البيت", question: "اذكر غرفة أو جزءاً من أجزاء المنزل", answers: ["مجلس","مقلط","صالة","غرفة نوم","مطبخ","حمام","دورة مياه","مغاسل","حوش","فناء","سطح","ملحق","قبو","سرداب","مدخل","ممر","سيب","درج","سلم","بلكونة","شرفة","مستودع","مخزن","غرفة غسيل","كراج","موقف","ديوانية","مشب","خيمة"] },
-      { category: "🚿 أدوات النظافة", question: "اذكر أداة أو منتجاً يُستخدم في النظافة الشخصية أو المنزلية", answers: ["صابون","شامبو","بلسم","غسول","معجون اسنان","فرشاة اسنان","خيط اسنان","غسول فم","مزيل عرق","عطر","مناديل","مناديل مبللة","قطن","اعواد اذان","مقص اظافر","مبرد","موس حلاقة","ماكينة حلاقة","ليفة","منشفة","فوطة","روب","كلوركس","فيري","تايد","ديتول","ملمع زجاج","معطر جو","مكنسة","ممسحة","سطل","اسفنجة","كيس زبالة"] },
-      { category: "👶 عالم الأطفال", question: "اذكر شيئاً يخص الأطفال الرضع أو الصغار", answers: ["رضاعة","حليب اطفال","لهاية","مصاصة","حفاظات","بامبرز","سرير اطفال","عربية اطفال","كرسي سيارة","مشاية","لعبة","دمية","عروسة","مكعبات","صلصال","الوان","تلوين","قصص اطفال","حضانة","روضة","تمهيدي","بسكويت اطفال","سيريلاك","بودرة اطفال","شامبو اطفال","مريلة","بطانية"] },
-      { category: "🎒 في الحقيبة المدرسية", question: "اذكر شيئاً تجده داخل شنطة الطالب", answers: ["كتاب","دفتر","قلم","قلم رصاص","مساحة","ممحاة","براية","مسطرة","مقلمة","الوان","آلة حاسبة","ملف","ورق","مذكرة","فسحة","ساندوتش","عصير","ماء","زمزمية","مناديل","معقم","جدول الحصص","بطاقة طالب"] },
-      { category: "🏦 البنوك والمال", question: "اذكر اسم بنك أو مصطلحاً بنكياً ومالياً", answers: ["الراجحي","الاهلي","الإنماء","البلاد","الرياض","ساب","الأول","الفرنسي","العربي","الجزيرة","الاستثمار","اس تي سي باي","برق","يورباي","حساب بنكي","ايبان","بطاقة صراف","مدى","فيزا","ماستركارد","تحويل","ايداع","سحب","قرض","تمويل","راتب","ادخار","استثمار","اسهم","تداول","محفظة","ضريبة","فاتورة","ايصال","شيك","كاش"] },
-      { category: "⏰ أوقات اليوم والزمن", question: "اذكر وقتاً من أوقات اليوم أو وحدة لقياس الزمن", answers: ["فجر","صبح","صباح","شروق","ضحى","ظهر","قائلة","عصر","مغرب","غروب","عشاء","مساء","ليل","منتصف الليل","سحر","ثانية","دقيقة","ساعة","يوم","اسبوع","شهر","سنة","عام","عقد","قرن","امس","اليوم","غدا","بكرة"] },
-      { category: "🧭 الاتجاهات والأماكن", question: "اذكر اتجاهاً جغرافياً أو موقعاً نسبياً", answers: ["شمال","جنوب","شرق","غرب","شمال شرق","شمال غرب","جنوب شرق","جنوب غرب","يمين","يسار","امام","قدام","خلف","وراء","فوق","اعلى","تحت","اسفل","داخل","جوا","خارج","برا","وسط","منتصف","جانب","بجانب","قريب","بعيد"] },
-      { category: "🎲 ألعاب شعبية ولوحية", question: "اذكر لعبة شعبية أو لعبة ورق أو طاولة", answers: ["بلوت","اونو","مونوبولي","شطرنج","داما","كيرم","طاولة","دومينو","نرد","زهر","ورق","كوتشينة","طرب","هند","كونكان","باصرة","سبيتة","حكم","صن","تريكس","جاكارو","لودو","سلم وثعبان","اكس او","حجرة ورقة مقص","غميضة","طاق طاقية","عظيم ساري","نبيلة","مصاقيل","تيلة","بلابل","كورة شراب"] },
-      { category: "🗣️ لهجات وكلمات سعودية", question: "اذكر كلمة عامية سعودية مشهورة", answers: ["ابشر","سم","لبيه","هلا","ارحب","يا هلا","والله","كفو","ونعم","ما قصرت","يعطيك العافية","سلامتك","فديتك","وش العلم","علومك","اخبارك","زين","طيب","تمام","خلاص","يلا","امش","تعال","روح","هنا","هناك","الحين","توه","بكرة","امس","واجده","شوي","مرة","جد","صدق","والله انك","يا رجال","يا ولد","يا بنت","حياك","تفضل","قهوة","فنجال"] },
-      { category: "📜 شخصيات تاريخية", question: "اذكر شخصية تاريخية أو عالماً عربياً وإسلامياً مشهوراً", answers: ["الملك عبدالعزيز","الملك سعود","الملك فيصل","الملك خالد","الملك فهد","الملك عبدالله","الملك سلمان","الامير محمد بن سلمان","صلاح الدين","خالد بن الوليد","عمر بن الخطاب","ابوبكر الصديق","عثمان بن عفان","علي بن ابي طالب","طارق بن زياد","عمر المختار","هارون الرشيد","المتنبي","امرؤ القيس","عنترة","ابن سينا","الخوارزمي","ابن الهيثم","جابر بن حيان","ابن بطوطة","ابن خلدون","الادريسي","الرازي","الفارابي","البخاري","مسلم","ابن تيمية"] },
-      { category: "📖 سور القرآن الكريم", question: "اذكر اسماً لسورة من سور القرآن الكريم", answers: ["الفاتحة","البقرة","ال عمران","النساء","المائدة","الانعام","الاعراف","الانفال","التوبة","يونس","هود","يوسف","الرعد","ابراهيم","الحجر","النحل","الاسراء","الكهف","مريم","طه","الانبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الاحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الاحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الانسان","المرسلات","النبأ","النازعات","عبس","التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الاعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الاخلاص","الفلق","الناس"] },
-      { category: "🕋 مناسك الحج والعمرة", question: "اذكر ركناً أو مشعراً أو شيئاً يخص الحج والعمرة", answers: ["احرام","ازار","رداء","تلبية","طواف","سعي","الصفا","المروة","الكعبة","الحجر الاسود","مقام ابراهيم","زمزم","منى","عرفات","عرفة","مزدلفة","رمي الجمرات","الجمرات","حلق","تقصير","هدي","اضحية","طواف الافاضة","طواف الوداع","المسجد الحرام","الميقات"] },
-      { category: "🎭 فنون وهوايات", question: "اذكر هواية أو فناً من الفنون", answers: ["رسم","تلوين","خط عربي","نحت","تصوير","مونتاج","تصميم","برمجة","كتابة","شعر","قراءة","مطالعة","طبخ","خياطة","تطريز","صيد","تخييم","كشتة","سباحة","ركوب خيل","رماية","سفر","تجميع عملات","زراعة","شطرنج","عزف","غناء","تمثيل"] },
-      { category: "🚒 الطوارئ والأمن", question: "اذكر جهة طوارئ أو أداة سلامة", answers: ["الشرطة","المرور","الدفاع المدني","الاسعاف","الهلال الاحمر","امن الطرق","حرس الحدود","المباحث","الاستخبارات","مكافحة المخدرات","نجم","طفاية حريق","كاشف دخان","مخرج طوارئ","حقيبة اسعافات","سترة نجاة","حزام امان","صافرة انذار","رقم 911","رقم 999","رقم 998","رقم 997","رقم 993"] },
-      { category: "🛳️ وسائل النقل", question: "اذكر وسيلة نقل برية أو بحرية أو جوية", answers: ["سيارة","حافلة","باص","شاحنة","تريلة","دباب","دراجة نارية","دراجة هوائية","سيكل","سكوتر","قطار","مترو","ترام","طائرة","هليكوبتر","مروحية","منطاد","صاروخ","سفينة","باخرة","قارب","زورق","يخت","عبارة","غواصة","جمل","حصان"] },
-      { category: "🏗️ مواد البناء", question: "اذكر مادة تُستخدم في بناء المنازل وتشطيبها", answers: ["اسمنت","رمل","حصى","بحص","خرسانة","صبة","حديد","تسليح","بلك","طوب","جبس","جبس بورد","بلاط","سيراميك","بورسلان","رخام","باركيه","دهان","بويه","معجون","عازل","فوم","زجاج","المنيوم","خشب","انابيب","مواسير","اسلاك","كيابل","قرميد","حجر"] },
-      { category: "📐 أشكال هندسية", question: "اذكر شكلاً هندسياً ثنائي أو ثلاثي الأبعاد", answers: ["دائرة","مربع","مستطيل","مثلث","معين","متوازي اضلاع","شبه منحرف","خماسي","سداسي","سباعي","ثماني","بيضاوي","نجمة","هلال","مكعب","متوازي مستطيلات","كرة","اسطوانة","مخروط","هرم","منشور"] },
-      { category: "🧪 عناصر كيميائية", question: "اذكر عنصراً كيميائياً أو غازاً معروفاً", answers: ["اكسجين","هيدروجين","نيتروجين","كربون","هيليوم","نيون","ارجون","كلور","فلور","يود","بروم","صوديوم","بوتاسيوم","كالسيوم","مغنيسيوم","حديد","نحاس","ذهب","فضة","زئبق","رصاص","كبريت","فوسفور","سيليكون","المونيوم","زنك","يورانيوم"] },
-      { category: "🩺 تخصصات طبية", question: "اذكر تخصصاً طبياً أو عيادة في المستشفى", answers: ["باطنية","جراحة","عظام","قلب","اعصاب","مخ واعصاب","عيون","انف واذن وحنجرة","اسنان","جلدية","اطفال","نساء وولادة","مسالك بولية","صدرية","كلى","غدد صماء","اورام","نفسية","تجميل","تخدير","اشعة","طوارئ","علاج طبيعي","تغذية","مختبر"] },
-      { category: "📚 كتب ومراجع", question: "اذكر نوعاً من الكتب أو المطبوعات", answers: ["مصحف","تفسير","حديث","فقه","سيرة","تاريخ","رواية","قصة","ديوان شعر","موسوعة","قاموس","معجم","اطلس","مجلة","جريدة","صحيفة","كتاب مدرسي","مذكرة","ملخص","كتيب","دليل","بحث","رسالة ماجستير"] },
-      { category: "🧀 ألبان ومشتقاتها", question: "اذكر منتجاً من منتجات الحليب والألبان", answers: ["حليب","لبن","زبادي","روب","قشطة","قيمر","جبن","جبنة بيضاء","جبنة شيدر","جبنة موزاريلا","جبنة كاسات","جبنة مثلثات","لبنة","زبدة","سمن","سمن بري","ايسكريم","حليب مكثف","حليب مبخر","مخيض","اقط","مضير","جميد"] },
-      { category: "🥖 مخبوزات ومعجنات", question: "اذكر نوعاً من الخبز أو المعجنات", answers: ["خبز ابيض","خبز بر","صامولي","توست","تميس","شباتي","براتا","رقاق","قرصان","مفروك","فطيرة","فطائر","بيتزا","مناقيش","زعتر","سبانخ","كرواسون","باتيه","دونات","سينابون","بسكويت","شابورة","بقسماط","كعك","صمون","رغيف"] },
-      { category: "🥜 مكسرات وبذور", question: "اذكر نوعاً من المكسرات أو البذور", answers: ["فستق","لوز","كاجو","جوز","عين الجمل","بندق","فول سوداني","سبال","صنوبر","مكاديميا","كستناء","ابو فروة","حب شمسي","فصفص","بزر","حب قرع","بذور الشيا","بذور الكتان","سمسم","حبة البركة","حمص","قضامة","ذرة محمصة"] },
-      { category: "🎁 هدايا رجالية ونسائية", question: "اذكر هدية شائعة تُقدم في المناسبات", answers: ["عطر","دهن عود","بخور","ساعة","خاتم","سوار","عقد","طقم ذهب","قلم","كبك","مسبحة","سبحة","شماغ","بشت","نظارة شمسية","محفظة","شنطة","حقيبة","جوال","سماعات","باقة ورد","بوكيه","شوكولاتة","كيك","كوب","بطاقة هدية","فلوس","كاش"] },
-      { category: "🔌 في غرفة النوم", question: "اذكر شيئاً تجده داخل غرفة النوم", answers: ["سرير","مرتبة","مخدة","وسادة","بطانية","لحاف","شرشف","دولاب","خزانة","تسريحة","كومودينة","مرآة","مراية","اباجورة","مصباح","سجادة","ستارة","مكيف","شاحن","منبه","ساعة","شماعة","علاقات ملابس","سلة ملابس","عطر","مشط"] },
-      { category: "🖥️ أجزاء الكمبيوتر", question: "اذكر قطعة داخلية أو خارجية في جهاز الكمبيوتر", answers: ["معالج","بروسيسور","كرت شاشة","رام","ذاكرة","لوحة ام","مذربورد","هارديسك","اس اس دي","باور سبلاي","مزود طاقة","مروحة","تبريد مائي","كيس","صندوق","شاشة","كيبورد","لوحة مفاتيح","ماوس","فأرة","سماعات","مايك","كاميرا","سلك اتش دي","واي فاي"] },
-      { category: "🌦️ حالة الطقس", question: "اذكر كلمة تصف حالة الجو والطقس", answers: ["مشمس","صافي","غائم","غائم جزئيا","ممطر","عاصف","مغبر","عج","ضبابي","حار","شديد الحرارة","بارد","قارس","معتدل","دافئ","رطب","جاف","مثلج","برق","رعد","رياح","نسيم","سكون"] },
-      { category: "🏕️ قهوة وشاي", question: "اذكر شيئاً يُستخدم في تحضير القهوة والشاي", answers: ["دلة","ابريق","براد","ملقمة","ركوة","كنكة","مكينة قهوة","طاحونة","مطحنة","فلتر","فنجان","فناجيل","بيالة","بيالات","كوب","ماق","ترمس","ثلاجة قهوة","بن","قهوة","هيل","زعفران","قرنفل","مسمار","زنجبيل","شاي","ليبتون","تلقيمة","نعناع","حبق","سكر","حليب"] },
-      { category: "🎬 أنواع الأفلام", question: "اذكر تصنيفاً أو نوعاً من أنواع الأفلام والمسلسلات", answers: ["اكشن","حركة","كوميدي","مضحك","دراما","رعب","غموض","اثارة","تشويق","خيال علمي","فانتازيا","مغامرات","جريمة","تاريخي","وثائقي","رومانسي","عائلي","انمي","كرتون","رسوم متحركة","حربي","سيرة ذاتية","موسيقي"] },
-      { category: "🦁 أصوات الحيوانات", question: "اذكر صوتاً من أصوات الحيوانات أو الطيور", answers: ["زئير","نباح","عواء","مواء","صهيل","نهيق","رغاء","ثغاء","خوار","فحيح","نقيق","زقزقة","تغريد","هديل","نعيق","صياح","طنين","حفيف","زمجرة"] },
-      { category: "🎓 مراحل التعليم", question: "اذكر مرحلة دراسية أو شهادة علمية", answers: ["حضانة","روضة","تمهيدي","ابتدائي","متوسط","ثانوي","جامعة","كلية","معهد","دبلوم","بكالوريوس","ماجستير","دكتوراه","بروفيسور","تحضيري","امتياز","تخرج"] },
-      { category: "🕌 أركان الإسلام والإيمان", question: "اذكر ركناً من أركان الإسلام أو الإيمان", answers: ["الشهادتان","الصلاة","الزكاة","الصوم","الصيام","الحج","الايمان بالله","الايمان بالملائكة","الايمان بالكتب","الايمان بالرسل","الايمان باليوم الاخر","الايمان بالقدر","القدر خيره وشره"] },
-      { category: "🧭 قارات ومناطق العالم", question: "اذكر قارة أو إقليماً جغرافياً في العالم", answers: ["اسيا","افريقيا","اوروبا","امريكا الشمالية","امريكا الجنوبية","استراليا","اوقيانوسيا","القارة القطبية الجنوبية","انتاركتيكا","الشرق الاوسط","الخليج العربي","الشام","المغرب العربي","القرن الافريقي","شبه الجزيرة العربية","البحر الكاريبي","اسكندنافيا","البلقان"] },
-      { category: "⚽ مصطلحات كرة القدم", question: "اذكر مصطلحاً يُستخدم في مباراة كرة القدم", answers: ["هدف","قول","تسلل","اوفسايد","ركنية","ضربة زاوية","ضربة جزاء","بلنتي","فاول","خطأ","ركلة حرة","بطاقة صفراء","كرت اصفر","بطاقة حمراء","طرد","تبديل","وقت بدل ضائع","شوط اول","شوط ثاني","اشواط اضافية","فار","حكم","حارس","مهاجم","مدافع","وسط","كابتن","تشكيلة","هاتريك","تمريرة","اسيست"] },
-      { category: "🛒 أقسام السوبرماركت", question: "اذكر قسماً من أقسام السوبرماركت أو الهايبرماركت", answers: ["الخضار والفواكه","اللحوم","الاسماك","المخبز","المخبوزات","الاجبان والالبان","المعلبات","المشروبات","الحلويات","الشوكولاتة","المجمدات","المنظفات","العناية الشخصية","ادوات المطبخ","الاجهزة الكهربائية","الملابس","الالعاب","القرطاسية","المحاسبة","الكاشير"] },
-      { category: "🎨 أدوات الرسم والتلوين", question: "اذكر أداة تُستخدم في الرسم والتصميم اليدوي", answers: ["قلم رصاص","فحم","الوان خشبية","الوان مائية","الوان زيتية","الوان اكريليك","الوان شمعية","الوان باستيل","فرشاة","لوحة","كانفس","كراسة رسم","ورق مقوى","ممحاة","مسطرة","فرجار","باليت","حامل لوحات","قلم تحديد","حبر"] },
-      { category: "🏕️ النجوم والطوالع", question: "اذكر نجماً أو طالعا معروفاً عند العرب وأهل البر", answers: ["سهيل","الثريا","الجوزاء","المرزم","الكليبين","الوسم","المربعانية","الشبط","العقارب","الحميمين","الذرعان","الكنة","الشعرى","نجم القطب","الجدي","بنات نعش","الدب الاكبر","العيوق","النسر الواقع","النسر الطائر"] }
+      { category: "🗣️ لهجات وكلمات سعودية", question: "اذكر كلمة عامية سعودية مشهورة", answers: ["ابشر","سم","لبيه","هلا","ارحب","يا هلا","والله","كفو","ونعم","ما قصرت","يعطيك العافية","سلامتك","فديتك","وش العلم","علومك","اخبارك","زين","طيب","تمام","خلاص","يلا","امش","تعال","روح","هنا","هناك","الحين","توه","بكرة","امس","واجده","شوي","مرة","جد","صدق","والله انك","يا رجال","يا ولد","يا بنت","حياك","تفضل","قهوة","فنجال"] }
     ];
 
+    // =========================================================
+    // ثوابت اللعبة والمتغيرات العامة
+    // =========================================================
     const MIN_PLAYERS = 2;
     const MAX_PLAYERS = 5;
-    const totalRounds = 5;
-    const totalSquares = 12;
-    const AUTO_NEXT_SECONDS = 7;
+    const TOTAL_ROUNDS = 10;          // 5 شبكة + 5 أدوار
+    const GRID_ROUNDS_COUNT = 5;      // أول 5 جولات
+    const GRID_SQUARES = 12;          // 12 مربع في طور الشبكة
+    const TURN_SLOTS_COUNT = 5;       // 5 إجابات في طور الأدوار
+    const ROUND_DURATION_SEC = 90;    // مدة الجولة الواحدة: دقيقة ونص (90 ثانية)
+    const TURN_SECONDS = 15;          // 15 ثانية لكل لاعب في طور الأدوار
+    const AUTO_NEXT_SECONDS = 6;
     const botNamesPool = ["سارة", "خالد", "فيصل", "نورة", "تركي", "ريم", "سلطان", "العنود"];
 
     const myId = "p_" + Math.random().toString(36).substring(2, 9);
@@ -499,8 +430,25 @@
     let validSet = new Set();
     let botInterval = null;
     let autoNextInterval = null;
+    let turnTimerInterval = null;
+    let roundClockInterval = null;
     let lastRenderedRound = -1;
+    let lastTurnSlotIndex = -1;
+    let lastKnownUsedCount = 0;
+    let lastRoundTickSec = -1;
+    let lastTurnTickSec = -1;
     let modalShownForState = "";
+    let adTimerInterval = null;
+
+    function isTurnRound(roundIdx) {
+      return roundIdx >= GRID_ROUNDS_COUNT;
+    }
+
+    function formatClock(totalSec) {
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
 
     function generateRoomCode() {
       const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -529,22 +477,21 @@
     }
 
     window.startWithEffect = function(btn) {
+      getAudioCtx();
+      sfx.roundStart();
       if (btn.classList.contains('clicked')) return;
       btn.classList.add('clicked');
       setTimeout(() => {
         switchScreen('login-screen');
-        setTimeout(() => btn.classList.remove('clicked'), 600);
-      }, 650);
+        setTimeout(() => btn.classList.remove('clicked'), 400);
+      }, 240);
     };
 
     function switchScreen(screenId) {
       ['welcome-screen', 'login-screen', 'lobby-screen', 'game-screen'].forEach(id => {
         const el = document.getElementById(id);
-        if (id === screenId) {
-          el.classList.remove('hidden');
-        } else {
-          el.classList.add('hidden');
-        }
+        if (id === screenId) el.classList.remove('hidden');
+        else el.classList.add('hidden');
       });
       document.getElementById('loading-overlay').classList.add('hidden');
     }
@@ -555,7 +502,7 @@
     window.createRoom = async function() {
       const name = document.getElementById('player-name-input').value.trim();
       const errEl = document.getElementById('login-error');
-      if (!name) { errEl.textContent = "ماودك تعلمنا اسمك!"; return; }
+      if (!name) { sfx.wrong(); errEl.textContent = "ماودك تعلمنا اسمك!"; return; }
       errEl.textContent = "جاري إنشاء الغرفة...";
 
       const code = generateRoomCode();
@@ -568,9 +515,13 @@
         ],
         matchQuestions: [],
         currentRoundIndex: 0,
+        roundStartedAt: 0,
         goldenIndices: [],
-        squares: Array(totalSquares).fill(null),
-        usedAnswers: []
+        squares: Array(GRID_SQUARES).fill(null),
+        usedAnswers: [],
+        turnSlots: [],
+        activeTurnSlot: 0,
+        turnStartedAt: 0
       };
 
       try {
@@ -580,7 +531,7 @@
         modalShownForState = "";
         listenToRoom(code);
       } catch (e) {
-        errEl.textContent = "خطأ في الاتصال بـ Firebase، تأكد من تفعيل Firestore!";
+        errEl.textContent = "خطأ في الاتصال بـ Firebase!";
         console.error(e);
       }
     };
@@ -590,8 +541,8 @@
       const code = document.getElementById('room-code-input').value.trim().toUpperCase();
       const errEl = document.getElementById('login-error');
 
-      if (!name) { errEl.textContent = "ماودك تعلمنا اسمك!"; return; }
-      if (code.length !== 4) { errEl.textContent = "أدخل كود الغرفة المكون من 4 حروف أو أرقام!"; return; }
+      if (!name) { sfx.wrong(); errEl.textContent = "ماودك تعلمنا اسمك!"; return; }
+      if (code.length !== 4) { sfx.wrong(); errEl.textContent = "أدخل كود الغرفة المكون من 4 حروف!"; return; }
       errEl.textContent = "جاري البحث عن الغرفة...";
 
       try {
@@ -623,6 +574,7 @@
         modalShownForState = "";
         listenToRoom(code);
       } catch (e) {
+        sfx.wrong();
         if (e === "NOT_FOUND") errEl.textContent = "❌ الغرفة غير موجودة! تأكد من الكود.";
         else if (e === "ALREADY_STARTED") errEl.textContent = "⚠️ المباراة بدأت بالفعل في هذه الغرفة!";
         else if (e === "ROOM_FULL") errEl.textContent = "⚠️ الغرفة ممتلئة (الحد الأقصى 5 لاعبين)!";
@@ -635,6 +587,8 @@
       if (unsubscribeRoom) unsubscribeRoom();
       clearInterval(botInterval);
       clearInterval(autoNextInterval);
+      clearInterval(turnTimerInterval);
+      clearInterval(roundClockInterval);
       currentRoomCode = "";
       roomData = null;
       lastRenderedRound = -1;
@@ -665,14 +619,16 @@
 
       if (roomData.status === "lobby") {
         lastRenderedRound = -1;
+        lastTurnSlotIndex = -1;
         modalShownForState = "";
         clearInterval(botInterval);
         clearInterval(autoNextInterval);
+        clearInterval(turnTimerInterval);
+        clearInterval(roundClockInterval);
         document.getElementById('end-modal').classList.add('hidden');
         renderLobby();
         switchScreen('lobby-screen');
       } else {
-        document.getElementById('game-room-badge').textContent = `غرفة: ${roomData.code}`;
         switchScreen('game-screen');
         renderActiveRound();
 
@@ -763,87 +719,257 @@
           startBtn.textContent = "بانتظار لاعب آخر على الأقل (الحد الأدنى 2)";
         } else {
           startBtn.disabled = false;
-          startBtn.textContent = `ابدأ المباراة الآن (${count} لاعبين)`;
+          startBtn.textContent = `ابدأ الـ 10 جولات الآن (${count} لاعبين)`;
         }
       }
     }
 
     // =========================================================
-    // 4. بدء المباراة والجولات وزر تخطي الجولة
+    // 4. بدء المباراة وإعداد الجولات (1-5 شبكة | 6-10 أدوار)
     // =========================================================
     window.startNewMatch = async function() {
       if (!roomData || roomData.hostId !== myId || roomData.players.length < MIN_PLAYERS) return;
 
-      const selectedQuestions = shuffleArray(questionsBank).slice(0, totalRounds);
+      const selectedQuestions = shuffleArray(questionsBank).slice(0, TOTAL_ROUNDS);
       const resetPlayers = roomData.players.map(p => ({ ...p, score: 0 }));
 
       await setupRoundOnServer(0, selectedQuestions, resetPlayers);
     };
 
     async function setupRoundOnServer(roundIdx, questions, playersList) {
-      const idx1 = Math.floor(Math.random() * totalSquares);
-      let idx2 = Math.floor(Math.random() * totalSquares);
-      while (idx2 === idx1) idx2 = Math.floor(Math.random() * totalSquares);
+      const turnMode = isTurnRound(roundIdx);
+      const now = Date.now();
 
-      await updateDoc(doc(db, "rooms", currentRoomCode), {
-        status: "playing",
-        matchQuestions: questions,
-        currentRoundIndex: roundIdx,
-        players: playersList,
-        goldenIndices: [idx1, idx2],
-        squares: Array(totalSquares).fill(null),
-        usedAnswers: []
-      });
+      if (!turnMode) {
+        const idx1 = Math.floor(Math.random() * GRID_SQUARES);
+        let idx2 = Math.floor(Math.random() * GRID_SQUARES);
+        while (idx2 === idx1) idx2 = Math.floor(Math.random() * GRID_SQUARES);
+
+        await updateDoc(doc(db, "rooms", currentRoomCode), {
+          status: "playing",
+          matchQuestions: questions,
+          currentRoundIndex: roundIdx,
+          roundStartedAt: now,
+          players: playersList,
+          goldenIndices: [idx1, idx2],
+          squares: Array(GRID_SQUARES).fill(null),
+          usedAnswers: [],
+          turnSlots: [],
+          activeTurnSlot: 0
+        });
+      } else {
+        const slots = [];
+        for (let i = 0; i < TURN_SLOTS_COUNT; i++) {
+          const p = playersList[i % playersList.length];
+          slots.push({
+            slotIndex: i,
+            playerId: p.id,
+            playerName: p.name,
+            colorIndex: p.colorIndex,
+            isBot: !!p.isBot,
+            word: "",
+            status: "pending",
+            isCorrect: false
+          });
+        }
+
+        await updateDoc(doc(db, "rooms", currentRoomCode), {
+          status: "playing",
+          matchQuestions: questions,
+          currentRoundIndex: roundIdx,
+          roundStartedAt: now,
+          players: playersList,
+          goldenIndices: [],
+          squares: [],
+          usedAnswers: [],
+          turnSlots: slots,
+          activeTurnSlot: 0,
+          turnStartedAt: now
+        });
+      }
     }
 
-    window.skipCurrentRound = async function() {
-      if (!roomData || roomData.hostId !== myId || roomData.status !== "playing") return;
-      clearInterval(botInterval);
+    // =========================================================
+    // 5. عدّاد الدقيقة ونص للجولة الواحدة (01:30 -> انتقال تلقائي)
+    // =========================================================
+    function startRoundMasterClock(isHost) {
+      clearInterval(roundClockInterval);
+      lastRoundTickSec = -1;
 
-      const nextStatus = (roomData.currentRoundIndex + 1 >= totalRounds) ? "match_end" : "round_end";
-      await updateDoc(doc(db, "rooms", currentRoomCode), {
-        status: nextStatus
-      });
+      const clockEl = document.getElementById('round-clock-badge');
+
+      const updateClock = async () => {
+        if (!roomData || roomData.status !== "playing") {
+          clearInterval(roundClockInterval);
+          return;
+        }
+
+        const started = roomData.roundStartedAt || Date.now();
+        const elapsed = (Date.now() - started) / 1000;
+        const left = Math.max(0, Math.ceil(ROUND_DURATION_SEC - elapsed));
+
+        clockEl.textContent = `⏱️ ${formatClock(left)}`;
+        if (left <= 10) {
+          clockEl.classList.add('clock-urgent');
+          if (left > 0 && left !== lastRoundTickSec) {
+            lastRoundTickSec = left;
+            sfx.tick();
+          }
+        } else {
+          clockEl.classList.remove('clock-urgent');
+        }
+
+        if (elapsed >= ROUND_DURATION_SEC) {
+          clearInterval(roundClockInterval);
+          sfx.timeout();
+          if (isHost) {
+            await finishRoundByTimeout();
+          }
+        }
+      };
+
+      updateClock();
+      roundClockInterval = setInterval(updateClock, 250);
+    }
+
+    async function finishRoundByTimeout() {
+      if (!roomData || roomData.status !== "playing") return;
+      const roomRef = doc(db, "rooms", currentRoomCode);
+
+      try {
+        await runTransaction(db, async (tx) => {
+          const snap = await tx.get(roomRef);
+          if (!snap.exists()) return;
+          const latest = snap.data();
+          if (latest.status !== "playing") return;
+
+          const nextStatus = (latest.currentRoundIndex + 1 >= TOTAL_ROUNDS) ? "match_end" : "round_end";
+          tx.update(roomRef, { status: nextStatus });
+        });
+      } catch (e) {
+        console.error("Round timeout transition failed:", e);
+      }
+    }
+
+    // =========================================================
+    // 6. أزرار التخطي وكشف الإجابة مع الإعلان (5 ثوانٍ)
+    // =========================================================
+    window.triggerAdAction = function(actionType) {
+      if (!roomData || roomData.status !== "playing") return;
+
+      if (DIRECT_AD_URL) {
+        window.open(DIRECT_AD_URL, "_blank", "noopener,noreferrer");
+      }
+
+      const adModal = document.getElementById('ad-reward-modal');
+      const titleEl = document.getElementById('ad-reward-title');
+      const countEl = document.getElementById('ad-reward-countdown');
+
+      titleEl.textContent = actionType === 'hint' ? "💡 جاري تجهيز الإجابة..." : "⏭️ جاري تخطي السؤال...";
+      let sec = 10;
+      countEl.textContent = sec;
+      adModal.classList.remove('hidden');
+
+      clearInterval(adTimerInterval);
+      adTimerInterval = setInterval(async () => {
+        sec--;
+        if (sec > 0) {
+          countEl.textContent = sec;
+          sfx.tick();
+        } else {
+          clearInterval(adTimerInterval);
+          adModal.classList.add('hidden');
+          sfx.correct(false);
+
+          if (actionType === 'skip') {
+            await finishRoundByTimeout();
+          } else if (actionType === 'hint') {
+            await executeRevealAnswer();
+          }
+        }
+      }, 1000);
     };
 
+    async function executeRevealAnswer() {
+      if (!roomData || roomData.status !== "playing") return;
+      const qData = roomData.matchQuestions[roomData.currentRoundIndex];
+      if (!qData) return;
+
+      const me = roomData.players.find(p => p.id === myId);
+      const turnMode = isTurnRound(roomData.currentRoundIndex);
+
+      if (!turnMode) {
+        const available = qData.answers.filter(w => !roomData.usedAnswers.includes(normalizeArabic(w)));
+        if (available.length > 0 && me) {
+          const picked = available[Math.floor(Math.random() * available.length)];
+          await claimSquareOnline(me, picked, normalizeArabic(picked));
+          showFeedback(`💡تم كشف : ${picked}`);
+        }
+      } else {
+        const usedInTurn = new Set(
+          (roomData.turnSlots || []).filter(s => s.word).map(s => normalizeArabic(s.word))
+        );
+        const available = qData.answers.filter(w => !usedInTurn.has(normalizeArabic(w)));
+        if (available.length > 0) {
+          const picked = available[Math.floor(Math.random() * available.length)];
+          const activeSlot = roomData.turnSlots?.[roomData.activeTurnSlot];
+          if (activeSlot && activeSlot.playerId === myId) {
+            await submitTurnAnswer(picked);
+          } else {
+            document.getElementById('answer-input').value = picked;
+            showFeedback(`💡 إجابة جاهزة لدورك: ${picked}`);
+          }
+        }
+      }
+    }
+
+    // =========================================================
+    // 7. رسم الواجهة النشطة (حسب طور الجولة)
+    // =========================================================
     function renderActiveRound() {
-      const roundData = roomData.matchQuestions[roomData.currentRoundIndex];
-      if (!roundData) return;
+      const qData = roomData.matchQuestions[roomData.currentRoundIndex];
+      if (!qData) return;
 
       const isHost = roomData.hostId === myId;
+      const turnMode = isTurnRound(roomData.currentRoundIndex);
 
-      const topBar = document.querySelector('#game-screen .top-bar');
-      let skipBtn = document.getElementById('skip-round-btn');
-      if (!skipBtn && topBar) {
-        skipBtn = document.createElement('button');
-        skipBtn.id = 'skip-round-btn';
-        skipBtn.className = 'btn btn-secondary btn-sm';
-        skipBtn.style.cssText = 'padding: 3px 8px; font-size: 0.75rem;';
-        skipBtn.textContent = '⏭️ تخطي';
-        skipBtn.onclick = skipCurrentRound;
-        topBar.appendChild(skipBtn);
-      }
-      if (skipBtn) {
-        skipBtn.style.display = (isHost && roomData.status === "playing") ? 'inline-block' : 'none';
-      }
+      document.getElementById('round-text').textContent = `جولة ${roomData.currentRoundIndex + 1}/${TOTAL_ROUNDS}`;
+      const modeBadge = document.getElementById('mode-badge');
+      modeBadge.textContent = turnMode ? "⏱️ أدوار (5)" : "⚡ شبكة (12)";
+      modeBadge.className = turnMode ? "mode-pill turn-pill" : "mode-pill";
 
       if (lastRenderedRound !== roomData.currentRoundIndex) {
         lastRenderedRound = roomData.currentRoundIndex;
-        document.getElementById('category-badge').textContent = roundData.category;
-        document.getElementById('question-title').textContent = roundData.question;
-        document.getElementById('round-text').textContent = `الجولة ${roomData.currentRoundIndex + 1} / ${totalRounds}`;
-        validSet = new Set(roundData.answers.map(normalizeArabic));
+        lastTurnSlotIndex = -1;
+        lastKnownUsedCount = (roomData.usedAnswers || []).length;
+        sfx.roundStart();
+
+        document.getElementById('category-badge').textContent = qData.category;
+        document.getElementById('question-title').textContent = qData.question;
+        validSet = new Set(qData.answers.map(normalizeArabic));
 
         const input = document.getElementById('answer-input');
         input.value = '';
-        input.focus();
 
         clearInterval(botInterval);
-        if (isHost && roomData.status === "playing") {
-          startBotsOnHost();
+        clearInterval(turnTimerInterval);
+
+        if (roomData.status === "playing") {
+          startRoundMasterClock(isHost);
+          if (!turnMode && isHost) {
+            startBotsOnHost();
+          }
         }
       }
 
+      // تشغيل صوت عند حجز مربع جديد في طور الشبكة
+      const currentUsedCount = (roomData.usedAnswers || []).length;
+      if (!turnMode && currentUsedCount > lastKnownUsedCount) {
+        lastKnownUsedCount = currentUsedCount;
+        sfx.correct(false);
+      }
+
+      // لوحة النقاط
       const board = document.getElementById('scoreboard');
       board.style.gridTemplateColumns = `repeat(${roomData.players.length}, 1fr)`;
       board.innerHTML = '';
@@ -854,25 +980,214 @@
         board.appendChild(div);
       });
 
-      const container = document.getElementById('grid-container');
-      container.innerHTML = '';
-      roomData.squares.forEach((cell, index) => {
-        const isGolden = roomData.goldenIndices.includes(index);
-        const div = document.createElement('div');
-        if (cell) {
-          div.className = `square-cell claimed player-bg-${cell.colorIndex}`;
-          div.innerHTML = `<span class="claimed-word">${cell.word}</span><span class="claimed-owner">${cell.playerName} ${isGolden ? '⭐' : ''}</span>`;
-        } else {
-          div.className = `square-cell ${isGolden ? 'golden' : ''}`;
-          div.innerHTML = isGolden ? '⭐ x2' : (index + 1);
-        }
-        container.appendChild(div);
-      });
+      const gridEl = document.getElementById('grid-container');
+      const turnEl = document.getElementById('turn-mode-container');
+      const inputEl = document.getElementById('answer-input');
+      const submitBtn = document.getElementById('submit-answer-btn');
 
-      const remaining = roomData.squares.filter(s => s === null).length;
-      document.getElementById('remaining-text').textContent = `المتبقي: ${remaining}`;
+      if (!turnMode) {
+        gridEl.classList.remove('hidden');
+        turnEl.classList.add('hidden');
+        inputEl.disabled = false;
+        submitBtn.disabled = false;
+        inputEl.placeholder = "اهبد أي إجابة صح بسرعة...";
+
+        gridEl.innerHTML = '';
+        roomData.squares.forEach((cell, index) => {
+          const isGolden = roomData.goldenIndices.includes(index);
+          const div = document.createElement('div');
+          if (cell) {
+            div.className = `square-cell claimed player-bg-${cell.colorIndex}`;
+            div.innerHTML = `<span class="claimed-word">${cell.word}</span><span class="claimed-owner">${cell.playerName} ${isGolden ? '⭐' : ''}</span>`;
+          } else {
+            div.className = `square-cell ${isGolden ? 'golden' : ''}`;
+            div.innerHTML = isGolden ? '⭐ x2' : (index + 1);
+          }
+          gridEl.appendChild(div);
+        });
+
+        const remaining = roomData.squares.filter(s => s === null).length;
+        document.getElementById('remaining-text').textContent = `باقي: ${remaining}`;
+      } else {
+        gridEl.classList.add('hidden');
+        turnEl.classList.remove('hidden');
+
+        const slots = roomData.turnSlots || [];
+        const activeIdx = roomData.activeTurnSlot || 0;
+        const currentSlot = slots[activeIdx];
+        const remainingTurns = slots.filter(s => s.status === "pending").length;
+        document.getElementById('remaining-text').textContent = `باقي: ${remainingTurns}`;
+
+        const isMyTurn = currentSlot && currentSlot.playerId === myId && roomData.status === "playing";
+        inputEl.disabled = !isMyTurn;
+        submitBtn.disabled = !isMyTurn;
+        inputEl.placeholder = isMyTurn
+          ? "دورك الآن! اكتب إجابتك..."
+          : `بانتظار إجابة ${currentSlot ? currentSlot.playerName : ''}...`;
+
+        if (isMyTurn && document.activeElement !== inputEl) {
+          inputEl.focus();
+        }
+
+        document.getElementById('turn-player-label').innerHTML = currentSlot
+          ? `🎯 الدور على: <span class="turn-highlight">${currentSlot.playerName}</span>`
+          : "اكتملت الأدوار";
+
+        const slotsGrid = document.getElementById('turn-slots-grid');
+        slotsGrid.innerHTML = '';
+        slots.forEach((slot, idx) => {
+          const isCurrent = idx === activeIdx && roomData.status === "playing";
+          const div = document.createElement('div');
+          div.className = `turn-slot-box ${isCurrent ? 'active-turn' : ''} ${slot.status !== 'pending' ? 'filled' : ''}`;
+
+          let statusText = "بانتظار الدور...";
+          if (isCurrent) statusText = "✍️ يكتب الآن...";
+          else if (slot.status === "submitted") statusText = "🔒 تم التسجيل";
+          else if (slot.status === "timeout") statusText = "⌛ انتهى الوقت";
+
+          div.innerHTML = `
+            <div class="slot-num">#${idx + 1}</div>
+            <div class="slot-player">
+              <span class="color-dot dot-${slot.colorIndex}"></span>
+              <span>${slot.playerName}</span>
+            </div>
+            <div class="slot-state">${statusText}</div>
+          `;
+          slotsGrid.appendChild(div);
+        });
+
+        if (lastTurnSlotIndex !== activeIdx && roomData.status === "playing") {
+          lastTurnSlotIndex = activeIdx;
+          startTurnCountdown(isHost, currentSlot);
+        }
+      }
     }
 
+    // =========================================================
+    // 8. عداد الثواني للدور الفردي (جولات 6-10)
+    // =========================================================
+    function startTurnCountdown(isHost, currentSlot) {
+      clearInterval(turnTimerInterval);
+      lastTurnTickSec = -1;
+      if (!currentSlot || roomData.status !== "playing") return;
+
+      const timerBadge = document.getElementById('turn-timer-badge');
+      const timerFill = document.getElementById('turn-timer-fill');
+
+      if (isHost && currentSlot.isBot) {
+        setTimeout(async () => {
+          if (!roomData || roomData.status !== "playing") return;
+          if (roomData.activeTurnSlot !== currentSlot.slotIndex) return;
+          const qData = roomData.matchQuestions[roomData.currentRoundIndex];
+          const randomAns = qData.answers[Math.floor(Math.random() * qData.answers.length)];
+          await advanceTurnSlot(currentSlot.slotIndex, randomAns, "submitted");
+        }, 2500);
+      }
+
+      turnTimerInterval = setInterval(async () => {
+        if (!roomData || roomData.status !== "playing") {
+          clearInterval(turnTimerInterval);
+          return;
+        }
+        const elapsed = (Date.now() - (roomData.turnStartedAt || Date.now())) / 1000;
+        const left = Math.max(0, Math.ceil(TURN_SECONDS - elapsed));
+        const pct = Math.max(0, Math.min(100, ((TURN_SECONDS - elapsed) / TURN_SECONDS) * 100));
+
+        timerBadge.textContent = `⏳ ${left}ث`;
+        timerBadge.style.color = left <= 5 ? "#ef4444" : "#38bdf8";
+        timerFill.style.width = `${pct}%`;
+        timerFill.style.backgroundColor = left <= 5 ? "#ef4444" : "#38bdf8";
+
+        if (left <= 5 && left > 0 && left !== lastTurnTickSec) {
+          lastTurnTickSec = left;
+          sfx.tick();
+        }
+
+        if (elapsed >= TURN_SECONDS) {
+          clearInterval(turnTimerInterval);
+          sfx.timeout();
+          if (isHost) {
+            await advanceTurnSlot(currentSlot.slotIndex, "", "timeout");
+          }
+        }
+      }, 250);
+    }
+
+    async function submitTurnAnswer(rawWord) {
+      if (!roomData || roomData.status !== "playing") return;
+      const activeIdx = roomData.activeTurnSlot;
+      const currentSlot = roomData.turnSlots?.[activeIdx];
+      if (!currentSlot || currentSlot.playerId !== myId) return;
+
+      sfx.correct(false);
+      await advanceTurnSlot(activeIdx, rawWord, "submitted");
+    }
+
+    async function advanceTurnSlot(slotIdx, rawWord, slotStatus) {
+      const roomRef = doc(db, "rooms", currentRoomCode);
+      try {
+        await runTransaction(db, async (tx) => {
+          const snap = await tx.get(roomRef);
+          if (!snap.exists()) return;
+          const latest = snap.data();
+
+          if (latest.status !== "playing") return;
+          if (latest.activeTurnSlot !== slotIdx) return;
+
+          const qData = latest.matchQuestions[latest.currentRoundIndex];
+          const qValidSet = new Set(qData.answers.map(normalizeArabic));
+
+          const previousNorms = new Set(
+            latest.turnSlots
+              .slice(0, slotIdx)
+              .filter(s => s.status === "submitted" && s.isCorrect)
+              .map(s => normalizeArabic(s.word))
+          );
+
+          const norm = normalizeArabic(rawWord || "");
+          const isValid = slotStatus === "submitted" && norm.length > 0 && qValidSet.has(norm) && !previousNorms.has(norm);
+
+          const updatedSlots = [...latest.turnSlots];
+          updatedSlots[slotIdx] = {
+            ...updatedSlots[slotIdx],
+            word: rawWord,
+            status: slotStatus,
+            isCorrect: isValid
+          };
+
+          let updatedPlayers = [...latest.players];
+          if (isValid) {
+            const targetPlayerId = updatedSlots[slotIdx].playerId;
+            updatedPlayers = updatedPlayers.map(p =>
+              p.id === targetPlayerId ? { ...p, score: p.score + 2 } : p
+            );
+          }
+
+          const nextSlotIdx = slotIdx + 1;
+          if (nextSlotIdx >= TURN_SLOTS_COUNT) {
+            const nextStatus = (latest.currentRoundIndex + 1 >= TOTAL_ROUNDS) ? "match_end" : "round_end";
+            tx.update(roomRef, {
+              turnSlots: updatedSlots,
+              players: updatedPlayers,
+              status: nextStatus
+            });
+          } else {
+            tx.update(roomRef, {
+              turnSlots: updatedSlots,
+              players: updatedPlayers,
+              activeTurnSlot: nextSlotIdx,
+              turnStartedAt: Date.now()
+            });
+          }
+        });
+      } catch (e) {
+        console.error("Turn update failed:", e);
+      }
+    }
+
+    // =========================================================
+    // 9. حجز المربعات في طور الشبكة (جولات 1-5)
+    // =========================================================
     async function claimSquareOnline(playerObj, displayWord, normWord) {
       if (!playerObj) return;
       const roomRef = doc(db, "rooms", currentRoomCode);
@@ -892,7 +1207,8 @@
           if (emptyIndices.length === 0) return;
 
           const targetIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
-          const points = latest.goldenIndices.includes(targetIndex) ? 2 : 1;
+          const isGold = latest.goldenIndices.includes(targetIndex);
+          const points = isGold ? 2 : 1;
 
           const newSquares = [...latest.squares];
           newSquares[targetIndex] = {
@@ -911,7 +1227,7 @@
 
           let nextStatus = "playing";
           if (remainingAfter === 0) {
-            nextStatus = (latest.currentRoundIndex + 1 >= totalRounds) ? "match_end" : "round_end";
+            nextStatus = (latest.currentRoundIndex + 1 >= TOTAL_ROUNDS) ? "match_end" : "round_end";
           }
 
           transaction.update(roomRef, {
@@ -929,7 +1245,7 @@
     function showFeedback(msg) {
       const el = document.getElementById('feedback-msg');
       el.textContent = msg;
-      setTimeout(() => { if (el.textContent === msg) el.textContent = ''; }, 1500);
+      setTimeout(() => { if (el.textContent === msg) el.textContent = ''; }, 1800);
     }
 
     document.getElementById('answer-form').addEventListener('submit', async (e) => {
@@ -940,18 +1256,28 @@
       const rawWord = input.value.trim();
       if (!rawWord) return;
 
-      const norm = normalizeArabic(rawWord);
-      const me = roomData.players.find(p => p.id === myId);
+      const turnMode = isTurnRound(roomData.currentRoundIndex);
 
-      if (roomData.usedAnswers.includes(norm)) {
-        showFeedback("⚠️ محجوزة سبقوك عليها !");
-      } else if (!validSet.has(norm)) {
-        showFeedback("❌دور غيرها");
-      } else {
+      if (turnMode) {
         input.value = '';
-        await claimSquareOnline(me, rawWord, norm);
+        await submitTurnAnswer(rawWord);
+      } else {
+        const norm = normalizeArabic(rawWord);
+        const me = roomData.players.find(p => p.id === myId);
+
+        if (roomData.usedAnswers.includes(norm)) {
+          sfx.wrong();
+          showFeedback("⚠️ محجوزة سبقوك عليها!");
+        } else if (!validSet.has(norm)) {
+          sfx.wrong();
+          showFeedback("❌ خطأ، دور غيرها!");
+        } else {
+          input.value = '';
+          sfx.correct(true);
+          await claimSquareOnline(me, rawWord, norm);
+        }
+        input.focus();
       }
-      input.focus();
     });
 
     function startBotsOnHost() {
@@ -959,28 +1285,55 @@
       if (bots.length === 0) return;
 
       botInterval = setInterval(async () => {
-        if (!roomData || roomData.status !== "playing") { clearInterval(botInterval); return; }
-        const roundData = roomData.matchQuestions[roomData.currentRoundIndex];
-        const available = roundData.answers.filter(w => !roomData.usedAnswers.includes(normalizeArabic(w)));
+        if (!roomData || roomData.status !== "playing" || isTurnRound(roomData.currentRoundIndex)) {
+          clearInterval(botInterval);
+          return;
+        }
+        const qData = roomData.matchQuestions[roomData.currentRoundIndex];
+        const available = qData.answers.filter(w => !roomData.usedAnswers.includes(normalizeArabic(w)));
         if (available.length === 0) return;
 
         const randomWord = available[Math.floor(Math.random() * available.length)];
         const randomBot = bots[Math.floor(Math.random() * bots.length)];
         await claimSquareOnline(randomBot, randomWord, normalizeArabic(randomWord));
-      }, 2800);
+      }, 3200);
     }
 
     // =========================================================
-    // 5. نافذة نهاية الجولة + العداد التلقائي للانتقال
+    // 10. نافذة نهاية الجولة والانتقال التلقائي
     // =========================================================
     function showEndModal(isHost) {
       clearInterval(botInterval);
       clearInterval(autoNextInterval);
+      clearInterval(turnTimerInterval);
+      clearInterval(roundClockInterval);
 
       const modal = document.getElementById('end-modal');
       const title = document.getElementById('modal-title');
       const rankingList = document.getElementById('ranking-list');
       const btn = document.getElementById('next-round-btn');
+      const revealBox = document.getElementById('turn-reveal-box');
+      const revealList = document.getElementById('turn-reveal-list');
+
+      if (isTurnRound(roomData.currentRoundIndex) && roomData.turnSlots?.length) {
+        revealBox.classList.remove('hidden');
+        revealList.innerHTML = '';
+        roomData.turnSlots.forEach(slot => {
+          const li = document.createElement('li');
+          li.className = `reveal-item ${slot.isCorrect ? 'rev-ok' : 'rev-bad'}`;
+          const ansDisplay = slot.status === "timeout"
+            ? "انتهى الوقت ⌛"
+            : (slot.word || "—");
+          const resultBadge = slot.isCorrect ? "✅ صح (+2)" : "❌ خطأ (0)";
+          li.innerHTML = `
+            <span><strong>${slot.playerName}:</strong> ${ansDisplay}</span>
+            <span>${resultBadge}</span>
+          `;
+          revealList.appendChild(li);
+        });
+      } else {
+        revealBox.classList.add('hidden');
+      }
 
       const sortedPlayers = [...roomData.players].sort((a, b) => b.score - a.score);
       rankingList.innerHTML = '';
@@ -994,9 +1347,7 @@
       });
 
       if (roomData.status === "match_end") {
-        if (isHost) {
-          savePlayersToLeaderboard(roomData.players);
-        }
+        if (isHost) savePlayersToLeaderboard(roomData.players);
         title.textContent = `🏆 الكنق: ${sortedPlayers[0].name}!`;
         if (isHost) {
           btn.disabled = false;
@@ -1011,7 +1362,7 @@
           btn.textContent = "بانتظار المضيف للعودة للغرفة...";
         }
       } else {
-        title.textContent = `انتهت الجولة ${roomData.currentRoundIndex + 1} من ${totalRounds}`;
+        title.textContent = `انتهت الجولة ${roomData.currentRoundIndex + 1} من ${TOTAL_ROUNDS}`;
         let secondsLeft = AUTO_NEXT_SECONDS;
 
         const goNextRound = async () => {
@@ -1037,11 +1388,9 @@
             clearInterval(autoNextInterval);
             if (isHost) goNextRound();
           } else {
-            if (isHost) {
-              btn.textContent = `الجولة التالية (${secondsLeft})`;
-            } else {
-              btn.textContent = `الجولة التالية تلقائياً خلال (${secondsLeft})...`;
-            }
+            btn.textContent = isHost
+              ? `الجولة التالية (${secondsLeft})`
+              : `الجولة التالية تلقائياً خلال (${secondsLeft})...`;
           }
         }, 1000);
       }
@@ -1050,7 +1399,7 @@
     }
 
     // =========================================================
-    // 6. منطق الزر المخفي والمقلب الأونلاين
+    // 11. المقلب السري + الخلفية + التوب 3
     // =========================================================
     let secretClicks = 0;
     let secretTimer = null;
@@ -1099,7 +1448,6 @@
     function checkIncomingPrank() {
       if (!roomData || !roomData.prank) return;
       const p = roomData.prank;
-
       if (p.id === lastShownPrankId || p.senderId === myId) return;
 
       if (p.target === "ALL" || p.target === myId) {
@@ -1110,9 +1458,6 @@
       }
     }
 
-    // =========================================================
-    // 7. خلفية الكلمات المبعثرة (شفافية خفيفة)
-    // =========================================================
     function initScatteredBackground() {
       const layer = document.getElementById('bg-words-layer');
       if (!layer) return;
@@ -1124,29 +1469,19 @@
       ];
 
       layer.innerHTML = "";
-      const count = 28;
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < 26; i++) {
         const span = document.createElement('span');
         span.className = 'bg-scatter-word';
         span.textContent = sampleWords[i % sampleWords.length];
-
-        const top = (i * 3.6 + (Math.random() * 4)) % 96;
-        const left = (i * 17 + (Math.random() * 12)) % 92;
-        const rotate = Math.floor(Math.random() * 50) - 25;
-        const size = (0.85 + Math.random() * 0.9).toFixed(2);
-
-        span.style.top = `${top}%`;
-        span.style.left = `${left}%`;
-        span.style.transform = `rotate(${rotate}deg)`;
-        span.style.fontSize = `${size}rem`;
+        span.style.top = `${(i * 3.8 + Math.random() * 4) % 96}%`;
+        span.style.left = `${(i * 17 + Math.random() * 12) % 92}%`;
+        span.style.transform = `rotate(${Math.floor(Math.random() * 50) - 25}deg)`;
+        span.style.fontSize = `${(0.85 + Math.random() * 0.85).toFixed(2)}rem`;
         layer.appendChild(span);
       }
     }
     initScatteredBackground();
 
-    // =========================================================
-    // 8. لوحة التوب 3 العامة (الأول كامل والبقية أول حرفين)
-    // =========================================================
     function listenToGlobalTop3() {
       const listEl = document.getElementById('global-top3-list');
       if (!listEl) return;
@@ -1173,13 +1508,10 @@
           listEl.appendChild(li);
           idx++;
         });
-      }, (err) => {
-        console.error("Leaderboard error:", err);
       });
     }
     listenToGlobalTop3();
 
-    // حفظ أعلى نتيجة يحققها كل لاعب حقيقي في نهاية المباراة
     async function savePlayersToLeaderboard(playersList) {
       for (const p of playersList) {
         if (p.isBot || !p.score || p.score <= 0) continue;
