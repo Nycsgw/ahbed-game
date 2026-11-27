@@ -486,8 +486,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  min-height: 60px;
-  max-height: 66px;
+  height: 60px;
+  max-height: 60px;
   background: rgba(7, 11, 25, 0.97);
   border-top: 1px solid rgba(56, 189, 248, 0.25);
   display: flex;
@@ -496,12 +496,21 @@ body {
   z-index: 9500;
   padding: 4px 8px;
   overflow: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* إخفاء الشريط تلقائياً إذا لم ترسل جوجل إعلاناً بعد */
+.fixed-bottom-ad:has(ins[data-ad-status="unfilled"]) {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
 }
 
 .fixed-bottom-ad ins.adsbygoogle {
-  width: 100%;
-  max-width: 728px;
+  display: block;
+  width: 320px;
   height: 50px;
+  max-height: 50px;
 }
 
 .top-bar {
@@ -1014,6 +1023,7 @@ body {
   20%, 60% { transform: translateX(-8px); }
   40%, 80% { transform: translateX(8px); }
 }
+
 .round-clock-pill {
   background: rgba(56, 189, 248, 0.14);
   border: 1px solid rgba(56, 189, 248, 0.4);
