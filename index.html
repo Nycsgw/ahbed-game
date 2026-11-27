@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>اهبد | لعبة التحدي والسرعة</title>
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3209690944379221"
      crossorigin="anonymous"></script>
 </head>
@@ -70,7 +70,6 @@
         <span>🚀 ابدأ  الآن</span>
       </button>
 
-      <div id="welcome-ad-space" class="ad-slot ad-banner-box"></div>
     </section>
 
     <!-- =====================================================
@@ -129,7 +128,6 @@
         </button>
       </div>
 
-      <div id="lobby-ad-space" class="ad-slot ad-banner-box"></div>
     </section>
 
     <!-- =====================================================
@@ -137,7 +135,7 @@
          ===================================================== -->
     <section id="game-screen" class="hidden game-arena">
       <div>
-        <!-- الشريط العلوي: رقم الجولة + عداد الدقيقة ونص + زر الصوت -->
+        <!-- الشريط العلوي: رقم الجولة + عداد الجولة + زر الصوت -->
         <div class="top-bar">
           <span id="round-text" class="round-pill">جولة 1/10</span>
           <span id="round-clock-badge" class="round-clock-pill">⏱️ 02:30</span>
@@ -155,6 +153,25 @@
             <span id="mode-badge" class="mode-pill">⚡ شبكة</span>
           </div>
           <h2 id="question-title" class="question-text"></h2>
+        </div>
+
+        <!-- شريط الإدخال + أزرار المساعدة فوق المربعات حتى تبقى المربعات ظاهرة عند فتح الكيبورد -->
+        <div class="top-controls-bar">
+          <form id="answer-form" class="answer-form">
+            <input id="answer-input" type="text" autocomplete="off" class="input-field" placeholder="اكتب إجابة واضغط Enter...">
+            <button id="submit-answer-btn" type="submit" class="btn btn-primary">اهبد</button>
+          </form>
+
+          <div id="feedback-msg" class="feedback-msg" style="margin-top: 4px; margin-bottom: 4px;"></div>
+
+          <div class="ad-helpers-row" style="margin-bottom: 0;">
+            <button type="button" id="hint-ad-btn" onclick="triggerAdAction('hint')" class="helper-ad-btn hint-btn">
+              💡 كشف إجابة <span class="ad-tag">إعلان</span>
+            </button>
+            <button type="button" id="skip-ad-btn" onclick="triggerAdAction('skip')" class="helper-ad-btn skip-btn">
+              ⏭️ تخطي السؤال <span class="ad-tag">إعلان</span>
+            </button>
+          </div>
         </div>
 
         <!-- [الطور الأول: جولات 1-5] شبكة الـ 12 مربع -->
@@ -175,25 +192,6 @@
           <div class="turn-slots-header">الإجابات المسجلة (تُكشف نهاية الجولة):</div>
           <div id="turn-slots-grid" class="turn-slots-grid"></div>
         </div>
-      </div>
-
-      <!-- أزرار المساعدة الإعلانية + شريط الإدخال -->
-      <div class="bottom-controls">
-        <div class="ad-helpers-row">
-          <button type="button" id="hint-ad-btn" onclick="triggerAdAction('hint')" class="helper-ad-btn hint-btn">
-            💡 كشف إجابة <span class="ad-tag">إعلان</span>
-          </button>
-          <button type="button" id="skip-ad-btn" onclick="triggerAdAction('skip')" class="helper-ad-btn skip-btn">
-            ⏭️ تخطي السؤال <span class="ad-tag">إعلان</span>
-          </button>
-        </div>
-
-        <div id="feedback-msg" class="feedback-msg"></div>
-
-        <form id="answer-form" class="answer-form">
-          <input id="answer-input" type="text" autocomplete="off" class="input-field" placeholder="اكتب إجابة واضغط Enter...">
-          <button id="submit-answer-btn" type="submit" class="btn btn-primary">اهبد</button>
-        </form>
       </div>
     </section>
 
@@ -229,7 +227,7 @@
   </div>
 
   <!-- =====================================================
-       5. نافذة عدّاد الإعلان (5 ثوانٍ)
+       5. نافذة عدّاد الإعلان
        ===================================================== -->
   <div id="ad-reward-modal" class="modal-overlay hidden" style="z-index: 9000;">
     <div class="modal-box" style="border: 2px solid #38bdf8;">
@@ -252,7 +250,7 @@
     <p class="loading-text">جاري التجهيز...</p>
   </div>
 
-  <!-- ======================= ىببببببببببببب==============================
+  <!-- =====================================================
        7. نظام المقلب السري
        ===================================================== -->
   <div id="prank-admin-modal" class="modal-overlay hidden" style="z-index: 9999;">
@@ -417,7 +415,7 @@
     const GRID_ROUNDS_COUNT = 5;      // أول 5 جولات
     const GRID_SQUARES = 12;          // 12 مربع في طور الشبكة
     const TURN_SLOTS_COUNT = 5;       // 5 إجابات في طور الأدوار
-    const ROUND_DURATION_SEC = 150;    // مدة الجولة الواحدة: دقيقة ونص (90 ثانية)
+    const ROUND_DURATION_SEC = 150;   // مدة الجولة الواحدة
     const TURN_SECONDS = 15;          // 15 ثانية لكل لاعب في طور الأدوار
     const AUTO_NEXT_SECONDS = 6;
     const botNamesPool = ["سارة", "خالد", "فيصل", "نورة", "تركي", "ريم", "سلطان", "العنود"];
@@ -790,7 +788,7 @@
     }
 
     // =========================================================
-    // 5. عدّاد الدقيقة ونص للجولة الواحدة (01:30 -> انتقال تلقائي)
+    // 5. عدّاد الجولة الواحدة (انتقال تلقائي)
     // =========================================================
     function startRoundMasterClock(isHost) {
       clearInterval(roundClockInterval);
@@ -852,7 +850,7 @@
     }
 
     // =========================================================
-    // 6. أزرار التخطي وكشف الإجابة مع الإعلان (5 ثوانٍ)
+    // 6. أزرار التخطي وكشف الإجابة مع الإعلان
     // =========================================================
     window.triggerAdAction = function(actionType) {
       if (!roomData || roomData.status !== "playing") return;
@@ -1248,6 +1246,16 @@
       setTimeout(() => { if (el.textContent === msg) el.textContent = ''; }, 1800);
     }
 
+    // تثبيت التمرير على مربع الكتابة والمربعات تحته عند فتح كيبورد الجوال
+    document.getElementById('answer-input').addEventListener('focus', () => {
+      setTimeout(() => {
+        const bar = document.querySelector('.top-controls-bar');
+        if (bar) {
+          bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 280);
+    });
+
     document.getElementById('answer-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!roomData || roomData.status !== "playing") return;
@@ -1531,5 +1539,21 @@
       }
     }
   </script>
+  <!-- =====================================================
+       8. بنر إعلان Google AdSense الثابت في جميع الشاشات
+       ===================================================== -->
+  <div id="global-fixed-ad" class="fixed-bottom-ad">
+    <!-- اهبد -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3209690944379221"
+         data-ad-slot="1494610029"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
 </body>
 </html>
